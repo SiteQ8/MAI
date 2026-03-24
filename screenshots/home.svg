@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="700" viewBox="0 0 375 700">
+<defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#0284c7"/></linearGradient></defs>
+<rect width="375" height="700" rx="20" fill="#f8fafc"/>
+<!-- Header -->
+<rect width="375" height="180" rx="20" fill="url(#hg)"/>
+<text x="355" y="38" fill="rgba(255,255,255,.8)" font-family="sans-serif" font-size="12" text-anchor="end">Good morning 👋</text>
+<text x="355" y="62" fill="#fff" font-family="sans-serif" font-size="22" font-weight="900" text-anchor="end">Ali AlEnezi</text>
+<text x="30" y="42" fill="rgba(255,255,255,.7)" font-family="sans-serif" font-size="11">🛒</text>
+<text x="60" y="42" fill="rgba(255,255,255,.7)" font-family="sans-serif" font-size="11">EN</text>
+<!-- Search -->
+<rect x="16" y="80" width="343" height="42" rx="12" fill="rgba(255,255,255,.2)"/>
+<text x="330" y="106" fill="rgba(255,255,255,.6)" font-family="sans-serif" font-size="13" text-anchor="end">🔍 Search companies...</text>
+<!-- Points -->
+<rect x="16" y="130" width="166" height="42" rx="10" fill="rgba(255,255,255,.12)"/>
+<text x="170" y="148" fill="rgba(255,255,255,.7)" font-family="sans-serif" font-size="10" text-anchor="end">Points</text>
+<text x="170" y="165" fill="#fff" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="end">⭐ 2,450</text>
+<rect x="193" y="130" width="166" height="42" rx="10" fill="rgba(255,255,255,.12)"/>
+<text x="347" y="148" fill="rgba(255,255,255,.7)" font-family="sans-serif" font-size="10" text-anchor="end">Saved</text>
+<text x="347" y="165" fill="#fff" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="end">28.750 KD</text>
+<!-- Categories -->
+<text x="355" y="210" fill="#1e293b" font-family="sans-serif" font-size="16" font-weight="800" text-anchor="end">Categories</text>
+<g transform="translate(16,220)">
+<rect x="0" y="0" width="55" height="60" rx="14" fill="#0ea5e915"/><text x="27" y="30" text-anchor="middle" font-size="22">💧</text><text x="27" y="52" text-anchor="middle" font-size="8" fill="#6b7280">Bottled</text>
+<rect x="65" y="0" width="55" height="60" rx="14" fill="#06b6d415"/><text x="92" y="30" text-anchor="middle" font-size="22">🪣</text><text x="92" y="52" text-anchor="middle" font-size="8" fill="#6b7280">Gallons</text>
+<rect x="130" y="0" width="55" height="60" rx="14" fill="#8b5cf615"/><text x="157" y="30" text-anchor="middle" font-size="22">🔧</text><text x="157" y="52" text-anchor="middle" font-size="8" fill="#6b7280">Filters</text>
+<rect x="195" y="0" width="55" height="60" rx="14" fill="#f59e0b15"/><text x="222" y="30" text-anchor="middle" font-size="22">🚰</text><text x="222" y="52" text-anchor="middle" font-size="8" fill="#6b7280">Dispensers</text>
+<rect x="260" y="0" width="55" height="60" rx="14" fill="#10b98115"/><text x="287" y="30" text-anchor="middle" font-size="22">📅</text><text x="287" y="52" text-anchor="middle" font-size="8" fill="#6b7280">Plans</text>
+</g>
+<!-- Companies -->
+<text x="355" y="310" fill="#1e293b" font-family="sans-serif" font-size="16" font-weight="800" text-anchor="end">Top Companies</text>
+<!-- Company 1 -->
+<rect x="16" y="320" width="343" height="66" rx="14" fill="#fff" stroke="#f1f5f9" stroke-width="1"/>
+<rect x="28" y="330" width="46" height="46" rx="12" fill="#0ea5e912"/><text x="51" y="360" text-anchor="middle" font-size="24">💧</text>
+<text x="340" y="348" fill="#1e293b" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="end">Abraaj Water</text>
+<text x="340" y="368" fill="#9ca3af" font-family="sans-serif" font-size="10" text-anchor="end">⭐ 4.8 · 🕐 25 min · 9 products</text>
+<!-- Company 2 -->
+<rect x="16" y="394" width="343" height="66" rx="14" fill="#fff" stroke="#f1f5f9" stroke-width="1"/>
+<rect x="28" y="404" width="46" height="46" rx="12" fill="#06b6d412"/><text x="51" y="434" text-anchor="middle" font-size="24">🏔️</text>
+<text x="340" y="422" fill="#1e293b" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="end">Al Rawdatain</text>
+<text x="340" y="442" fill="#9ca3af" font-family="sans-serif" font-size="10" text-anchor="end">⭐ 4.9 · 🕐 20 min · 8 products</text>
+<!-- Company 3 -->
+<rect x="16" y="468" width="343" height="66" rx="14" fill="#fff" stroke="#f1f5f9" stroke-width="1"/>
+<rect x="28" y="478" width="46" height="46" rx="12" fill="#0284c712"/><text x="51" y="508" text-anchor="middle" font-size="24">🌊</text>
+<text x="340" y="496" fill="#1e293b" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="end">Aqua Cool</text>
+<text x="340" y="516" fill="#9ca3af" font-family="sans-serif" font-size="10" text-anchor="end">⭐ 4.7 · 🕐 30 min · 7 products</text>
+<!-- Water Tip -->
+<rect x="16" y="550" width="343" height="60" rx="16" fill="#ecfdf5"/>
+<text x="340" y="575" fill="#065f46" font-family="sans-serif" font-size="12" font-weight="600" text-anchor="end">💧 Drink 8 glasses of water daily</text>
+<text x="340" y="595" fill="#6b7280" font-family="sans-serif" font-size="9" text-anchor="end">Tip of the day</text>
+<!-- Stats Bar -->
+<rect x="16" y="622" width="343" height="44" rx="12" fill="#1e293b"/>
+<text x="60" y="644" fill="#fff" font-family="sans-serif" font-size="13" font-weight="900" text-anchor="middle">10</text>
+<text x="60" y="658" fill="rgba(255,255,255,.5)" font-family="sans-serif" font-size="8" text-anchor="middle">Companies</text>
+<text x="150" y="644" fill="#fff" font-family="sans-serif" font-size="13" font-weight="900" text-anchor="middle">60+</text>
+<text x="150" y="658" fill="rgba(255,255,255,.5)" font-family="sans-serif" font-size="8" text-anchor="middle">Products</text>
+<text x="240" y="644" fill="#fff" font-family="sans-serif" font-size="13" font-weight="900" text-anchor="middle">24/7</text>
+<text x="240" y="658" fill="rgba(255,255,255,.5)" font-family="sans-serif" font-size="8" text-anchor="middle">Delivery</text>
+<text x="320" y="644" fill="#fff" font-family="sans-serif" font-size="13" font-weight="900" text-anchor="middle">6</text>
+<text x="320" y="658" fill="rgba(255,255,255,.5)" font-family="sans-serif" font-size="8" text-anchor="middle">Gov.</text>
+<!-- Bottom Nav -->
+<rect x="0" y="672" width="375" height="28" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="47" y="690" text-anchor="middle" fill="#0ea5e9" font-size="9" font-weight="700">🏠 Home</text>
+<text x="140" y="690" text-anchor="middle" fill="#9ca3af" font-size="9">🏢 Companies</text>
+<text x="233" y="690" text-anchor="middle" fill="#9ca3af" font-size="9">📦 Orders</text>
+<text x="328" y="690" text-anchor="middle" fill="#9ca3af" font-size="9">👤 Profile</text>
+</svg>
