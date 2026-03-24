@@ -1,6 +1,10 @@
 <div align="center">
 
-# 💧 MAI | ماي
+<img src="screenshots/banner.svg" alt="MAI Banner" width="600" />
+
+<br/><br/>
+
+<img src="screenshots/logo.svg" alt="MAI Logo" width="80" />
 
 ### Kuwait Water Delivery App | تطبيق توصيل المياه في الكويت
 
@@ -30,7 +34,19 @@
 </div>
 
 <div align="center">
-  <sub>Home · Company Detail · Checkout · Profile</sub>
+  <img src="screenshots/login.svg" width="160" alt="Login Screen" />
+  &nbsp;&nbsp;
+  <img src="screenshots/home.svg" width="160" alt="Home Screen" />
+  &nbsp;&nbsp;
+  <img src="screenshots/company.svg" width="160" alt="Company Page" />
+  &nbsp;&nbsp;
+  <img src="screenshots/checkout.svg" width="160" alt="Checkout" />
+  &nbsp;&nbsp;
+  <img src="screenshots/profile.svg" width="160" alt="Profile" />
+</div>
+
+<div align="center">
+  <sub>Login · Home · Company · Checkout · Profile</sub>
 </div>
 
 ---
@@ -55,6 +71,24 @@ All companies are **real Kuwait water brands** with demo product data:
 ---
 
 ## ✨ App Features
+
+### 🔐 Login Screen
+- **Glassmorphism design** — frosted glass card on ocean gradient
+- **Creative SVG logo** — water drop with waves, "MAI ماي" text
+- **Demo credentials** — displayed below the form for easy testing
+- **Phone + password** authentication
+- **Social login** — Apple Sign-in and SMS code options
+- **Remember me** checkbox
+- **Forgot password** link
+- **Bilingual toggle** — switch AR/EN right from login
+- **Animated entry** — logo drops in, card fades up with staggered timing
+
+**Demo Login:**
+| Field | Value |
+|-------|-------|
+| Phone | `+965 9999 9999` |
+| Password | `mai2026` |
+| Quick | `demo` / `demo` |
 
 ### 🏠 Home Screen
 - **Personalized greeting** — Good morning/evening with user name
