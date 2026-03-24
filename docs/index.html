@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0ea5e9">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>MAI | ماي — Kuwait Water Delivery</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>💧</text></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='100%25' stop-color='%230369a1'/%3E%3C/linearGradient%3E%3Ccircle cx='60' cy='60' r='56' fill='url(%23g)'/%3E%3Cpath d='M60 22C60 22 38 48 38 65C38 78 48 88 60 88C72 88 82 78 82 65C82 48 60 22 60 22Z' fill='white' opacity='.9'/%3E%3Ctext x='60' y='64' text-anchor='middle' font-size='22' font-weight='900' fill='%230369a1'%3EMAI%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -233,6 +233,57 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--tx);min-h
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .card,.prod,.order,.area,.info-card{animation:fadeUp .25s ease both}
+
+/* ═══ LOGIN ═══ */
+.login{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 24px;background:linear-gradient(165deg,#0c4a6e 0%,#0369a1 30%,#0ea5e9 60%,#38bdf8 100%);position:relative;overflow:hidden}
+.login::before{content:'';position:absolute;top:-100px;right:-100px;width:350px;height:350px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.login::after{content:'';position:absolute;bottom:-80px;left:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.03);pointer-events:none}
+.login *{position:relative}
+.login-logo{margin-bottom:8px}
+.login-name{font-size:2.4rem;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:2px}
+.login-name-ar{font-size:1.8rem;font-weight:800;color:rgba(255,255,255,.7);margin-bottom:4px;font-family:'Tajawal',sans-serif}
+.login-tag{font-size:.78rem;color:rgba(255,255,255,.55);margin-bottom:32px;text-align:center}
+.login-card{width:100%;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:24px;padding:28px 22px;border:1px solid rgba(255,255,255,.15);box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.login-title{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:18px;text-align:center}
+.login-field{margin-bottom:14px}
+.login-label{font-size:.7rem;color:rgba(255,255,255,.6);margin-bottom:5px;display:block;font-weight:600}
+.login-input{width:100%;padding:13px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:.88rem;outline:none;font-family:inherit;transition:border-color .2s}
+.login-input::placeholder{color:rgba(255,255,255,.3)}
+.login-input:focus{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.12)}
+.login-btn{width:100%;padding:15px;border-radius:14px;border:none;background:#fff;color:#0284c7;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;margin-top:6px;box-shadow:0 4px 16px rgba(0,0,0,.1);transition:transform .1s}
+.login-btn:active{transform:scale(.97)}
+.login-error{color:#fca5a5;font-size:.72rem;text-align:center;margin-top:10px;min-height:18px}
+.login-demo{margin-top:16px;text-align:center}
+.login-demo-title{font-size:.65rem;color:rgba(255,255,255,.4);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.login-demo-box{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 16px;border:1px dashed rgba(255,255,255,.15)}
+.login-demo-row{display:flex;justify-content:space-between;padding:3px 0;font-size:.72rem;color:rgba(255,255,255,.5)}
+.login-demo-row b{color:rgba(255,255,255,.8);font-weight:600;direction:ltr}
+.login-footer{margin-top:24px;text-align:center;font-size:.58rem;color:rgba(255,255,255,.3)}
+.login-footer a{color:rgba(255,255,255,.5);text-decoration:none}
+.login-lang{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.12);border:none;border-radius:8px;padding:5px 12px;color:rgba(255,255,255,.7);font-size:.68rem;cursor:pointer;font-family:inherit;font-weight:600;backdrop-filter:blur(4px)}
+[dir="ltr"] .login-lang{right:auto;left:16px}
+.login-remember{display:flex;align-items:center;gap:8px;margin:10px 0 4px}
+.login-remember input{width:16px;height:16px;accent-color:#fff}
+.login-remember label{font-size:.72rem;color:rgba(255,255,255,.5);cursor:pointer}
+.login-forgot{text-align:center;margin-top:10px}
+.login-forgot a{font-size:.72rem;color:rgba(255,255,255,.5);text-decoration:none}
+.login-forgot a:hover{color:#fff}
+.login-divider{display:flex;align-items:center;gap:10px;margin:18px 0;color:rgba(255,255,255,.3);font-size:.65rem}
+.login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.12)}
+.login-social{display:flex;gap:10px}
+.login-social-btn{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#fff;font-size:.78rem;cursor:pointer;text-align:center;font-family:inherit;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px}
+.login-social-btn:active{transform:scale(.97)}
+
+/* LOGO ANIMATION */
+@keyframes dropIn{0%{transform:translateY(-30px) scale(.8);opacity:0}60%{transform:translateY(5px) scale(1.05)}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes ripple{0%{box-shadow:0 0 0 0 rgba(255,255,255,.2)}100%{box-shadow:0 0 0 20px rgba(255,255,255,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.login-logo{animation:dropIn .8s ease both}
+.login-name{animation:dropIn .8s ease .1s both}
+.login-name-ar{animation:dropIn .8s ease .2s both}
+.login-tag{animation:dropIn .8s ease .3s both}
+.login-card{animation:dropIn .6s ease .4s both}
+
 </style>
 </head>
 <body>
@@ -240,7 +291,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--tx);min-h
 <script>
 
 // ═══ STATE ═══
-var S = { lang:'ar', tab:'home', page:'home', cart:[], company:null, showCart:false, showCheckout:false, orderPlaced:false, payMethod:'knet', promo:'', promoOk:false, search:'', catFilter:null };
+var S = { loggedIn:false, lang:'ar', tab:'home', page:'home', cart:[], company:null, showCart:false, showCheckout:false, orderPlaced:false, payMethod:'knet', promo:'', promoOk:false, search:'', catFilter:null };
 
 // ═══ TEXT ═══
 var T={ar:{app:'ماي',tag:'توصيل مياه الكويت',home:'الرئيسية',companies:'الشركات',orders:'طلباتي',profile:'حسابي',search:'ابحث عن شركة أو منتج...',featured:'عروض مميزة',topCompanies:'أفضل الشركات',categories:'التصنيفات',addToCart:'أضف',kd:'د.ك',items:'عناصر',checkout:'إتمام الطلب',total:'المجموع',delivery:'التوصيل',free:'مجاني',subtotal:'المجموع الفرعي',cart:'السلة',emptyCart:'سلتك فارغة',points:'نقاط',level:'المستوى',saved:'وفّرت',silverMember:'عضو فضي',editProfile:'تعديل الحساب',myAddresses:'عناويني',notifications:'الإشعارات',helpCenter:'مركز المساعدة',langSwitch:'English',logout:'تسجيل الخروج',payMethod:'طريقة الدفع',knet:'كي نت',creditCard:'بطاقة ائتمان',cod:'الدفع عند الاستلام',applePay:'Apple Pay',deliveryAddr:'عنوان التوصيل',placeOrder:'تأكيد الطلب',orderPlaced:'تم الطلب بنجاح!',orderTrack:'سيتم التوصيل خلال ٣٠-٤٥ دقيقة',back:'رجوع',products:'المنتجات',rating:'التقييم',minOrder:'الحد الأدنى',offer:'عرض',off:'خصم',newBadge:'جديد',bestSeller:'الأكثر مبيعاً',bottled:'مياه معبأة',gallon:'قوارير',filter:'فلاتر',dispenser:'برادات',subscription:'اشتراكات',accessories:'إكسسوارات',earnPts:'اكسب نقاط مع كل طلب!',noOrders:'لا توجد طلبات بعد',activeOrders:'طلبات نشطة',confirmed:'تم التأكيد',preparing:'جاري التحضير',onTheWay:'في الطريق',delivered:'تم التوصيل',remove:'حذف',promoCode:'كود خصم',apply:'تطبيق',promoApplied:'تم تطبيق الخصم',goodMorning:'صباح الخير',goodEvening:'مساء الخير',viewAll:'الكل',inviteFriends:'ادعو أصدقاءك',earnRefer:'اربح ٥٠٠ نقطة لكل صديق!',copyCode:'نسخ الكود',tipDay:'نصيحة اليوم',deliveryAreas:'مناطق التوصيل',waterTips:'نصائح مائية',orderSummary:'ملخص الطلب',allCompanies:'جميع الشركات',orders_count:'طلب'},
@@ -332,6 +383,112 @@ function rmCart(pid){S.cart=S.cart.filter(function(i){return i.p.id!==pid});rend
 function updQty(pid,d){S.cart.forEach(function(i){if(i.p.id===pid)i.qty=Math.max(1,i.qty+d)});render()}
 
 // ═══ RENDER ═══
+
+// ═══ SVG LOGO ═══
+function maiLogo(size){
+var s=size||120;
+return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="'+s+'" height="'+s+'">'+
+'<defs>'+
+'<linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#38bdf8"/><stop offset="50%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>'+
+'<linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity=".95"/><stop offset="100%" stop-color="#e0f2fe" stop-opacity=".85"/></linearGradient>'+
+'<filter id="ds"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0369a1" flood-opacity=".3"/></filter>'+
+'</defs>'+
+'<circle cx="60" cy="60" r="56" fill="url(#lg1)" filter="url(#ds)"/>'+
+'<circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1"/>'+
+'<circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>'+
+// Water drop shape
+'<path d="M60 22C60 22 38 48 38 65C38 78 48 88 60 88C72 88 82 78 82 65C82 48 60 22 60 22Z" fill="url(#lg2)" opacity=".9"/>'+
+// Wave inside drop
+'<path d="M42 66C46 62 54 68 60 64C66 60 74 66 78 62" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" opacity=".5"/>'+
+'<path d="M42 72C46 68 54 74 60 70C66 66 74 72 78 68" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>'+
+// MAI text
+'<text x="60" y="62" text-anchor="middle" font-family="Inter,Tajawal,sans-serif" font-size="22" font-weight="900" fill="#0369a1" letter-spacing="-1">MAI</text>'+
+// Arabic ماي
+'<text x="60" y="80" text-anchor="middle" font-family="Tajawal,sans-serif" font-size="14" font-weight="700" fill="#0284c7" opacity=".7">ماي</text>'+
+'</svg>';
+}
+
+// ═══ LOGIN SCREEN ═══
+function renderLogin(){
+var d=n('div',{className:'login'});
+
+// Language toggle
+d.appendChild(n('button',{className:'login-lang',onclick:function(){S.lang=S.lang==='ar'?'en':'ar';render()}},S.lang==='ar'?'English':'العربية'));
+
+// Logo
+var logoDiv=n('div',{className:'login-logo',innerHTML:maiLogo(110)});
+d.appendChild(logoDiv);
+
+// App name
+d.appendChild(n('div',{className:'login-name'},'MAI'));
+d.appendChild(n('div',{className:'login-name-ar'},'ماي'));
+d.appendChild(n('div',{className:'login-tag'},S.lang==='ar'?'تطبيق توصيل المياه في الكويت 🇰🇼':'Kuwait Water Delivery App 🇰🇼'));
+
+// Login card
+var card=n('div',{className:'login-card'});
+card.appendChild(n('div',{className:'login-title'},S.lang==='ar'?'تسجيل الدخول':'Sign In'));
+
+// Phone field
+var f1=n('div',{className:'login-field'});
+f1.appendChild(n('label',{className:'login-label'},S.lang==='ar'?'رقم الهاتف':'Phone Number'));
+var inp1=n('input',{className:'login-input',type:'tel',id:'login-phone',placeholder:'+965 xxxx xxxx',dir:'ltr'});
+f1.appendChild(inp1);card.appendChild(f1);
+
+// Password field
+var f2=n('div',{className:'login-field'});
+f2.appendChild(n('label',{className:'login-label'},S.lang==='ar'?'كلمة المرور':'Password'));
+var inp2=n('input',{className:'login-input',type:'password',id:'login-pass',placeholder:'••••••••'});
+f2.appendChild(inp2);card.appendChild(f2);
+
+// Remember + Forgot
+var rem=n('div',{style:{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'14px'}});
+var remL=n('div',{className:'login-remember'});
+var cb=n('input',{type:'checkbox',id:'rem-cb'});cb.checked=true;
+remL.appendChild(cb);remL.appendChild(n('label',{htmlFor:'rem-cb'},S.lang==='ar'?'تذكرني':'Remember me'));
+rem.appendChild(remL);
+var forgot=n('a',{href:'#',style:{fontSize:'.72rem',color:'rgba(255,255,255,.5)',textDecoration:'none'}},S.lang==='ar'?'نسيت كلمة المرور؟':'Forgot password?');
+rem.appendChild(forgot);
+card.appendChild(rem);
+
+// Error message
+card.appendChild(n('div',{className:'login-error',id:'login-err'},''));
+
+// Login button
+card.appendChild(n('button',{className:'login-btn',onclick:function(){
+var phone=document.getElementById('login-phone').value.replace(/\s/g,'');
+var pass=document.getElementById('login-pass').value;
+var errEl=document.getElementById('login-err');
+if(phone==='+96599999999'&&pass==='mai2026'){S.loggedIn=true;render();return}
+if(phone==='demo'&&pass==='demo'){S.loggedIn=true;render();return}
+if(!phone||!pass){errEl.textContent=S.lang==='ar'?'يرجى إدخال رقم الهاتف وكلمة المرور':'Please enter phone and password';return}
+errEl.textContent=S.lang==='ar'?'رقم الهاتف أو كلمة المرور غير صحيحة':'Invalid phone or password';
+}},S.lang==='ar'?'دخول':'Sign In'));
+
+// Divider
+card.appendChild(n('div',{className:'login-divider'},S.lang==='ar'?'أو':'or'));
+
+// Social login
+var social=n('div',{className:'login-social'});
+social.appendChild(n('button',{className:'login-social-btn',onclick:function(){S.loggedIn=true;render()},innerHTML:' Apple'}));
+social.appendChild(n('button',{className:'login-social-btn',onclick:function(){S.loggedIn=true;render()},innerHTML:'📱 '+(S.lang==='ar'?'رسالة SMS':'SMS Code')}));
+card.appendChild(social);
+
+d.appendChild(card);
+
+// Demo credentials
+var demo=n('div',{className:'login-demo'});
+demo.appendChild(n('div',{className:'login-demo-title'},S.lang==='ar'?'بيانات تجريبية للدخول':'Demo Login Credentials'));
+var box=n('div',{className:'login-demo-box'});
+box.innerHTML='<div class="login-demo-row"><span>'+(S.lang==='ar'?'الهاتف':'Phone')+'</span><b>+965 9999 9999</b></div><div class="login-demo-row"><span>'+(S.lang==='ar'?'كلمة المرور':'Password')+'</span><b>mai2026</b></div><div class="login-demo-row" style="border-top:1px dashed rgba(255,255,255,.1);padding-top:6px;margin-top:3px"><span>'+(S.lang==='ar'?'دخول سريع':'Quick login')+'</span><b>demo / demo</b></div>';
+demo.appendChild(box);d.appendChild(demo);
+
+// Footer
+d.appendChild(n('div',{className:'login-footer',innerHTML:'MAI v1.0 — <a href="https://github.com/SiteQ8">@SiteQ8</a> · Ali AlEnezi'}));
+
+return d;
+}
+
+
 function render(){
 var root=document.getElementById('app');root.innerHTML='';
 var lang=S.lang;var isRtl=lang==='ar';
@@ -340,6 +497,9 @@ document.getElementById('root').lang=lang;
 var greeting=new Date().getHours()<12?t('goodMorning'):t('goodEvening');
 
 // ORDER SUCCESS
+// LOGIN CHECK
+if(!S.loggedIn){root.appendChild(renderLogin());return}
+
 if(S.orderPlaced){
 root.appendChild(renderSuccess());return}
 // CHECKOUT
@@ -631,7 +791,7 @@ ref.innerHTML+='<div class="refer-code"><span class="refer-code-txt">ALI2026</sp
 pg.appendChild(ref);
 
 // Menu
-[['📝',t('editProfile')],['📍',t('myAddresses')],['🔔',t('notifications'),'2'],['❓',t('helpCenter')],['🌐',t('langSwitch'),null,function(){S.lang=S.lang==='ar'?'en':'ar';render()}],['🚪',t('logout')]].forEach(function(m){
+[['📝',t('editProfile')],['📍',t('myAddresses')],['🔔',t('notifications'),'2'],['❓',t('helpCenter')],['🌐',t('langSwitch'),null,function(){S.lang=S.lang==='ar'?'en':'ar';render()}],['🚪',t('logout'),null,function(){S.loggedIn=false;S.cart=[];S.tab='home';render()}]].forEach(function(m){
 var mi=n('div',{className:'menu-item',onclick:m[3]||null});mi.appendChild(n('span',{className:'menu-ico'},m[0]));mi.appendChild(n('span',{className:'menu-lbl'},m[1]));
 if(m[2])mi.appendChild(n('span',{className:'notif-badge'},m[2]));
 else if(m[3]||!m[3])mi.appendChild(n('span',{className:'menu-arr'},'←'));
