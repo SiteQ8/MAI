@@ -140,6 +140,40 @@ const DEMO_ORDERS = [
   { id: 'ORD-2815', company: 'مياه الصفا', items: 5, total: 8.250, status: 'delivered', date: '2026-03-18', progress: 100 },
 ];
 
+
+const WATER_TIPS = [
+  { ar: 'اشرب ٨ أكواب ماء يومياً على الأقل للحفاظ على صحتك', en: 'Drink at least 8 glasses of water daily for good health', icon: '💧' },
+  { ar: 'الماء البارد يساعد على حرق السعرات الحرارية', en: 'Cold water helps burn calories', icon: '❄️' },
+  { ar: 'اشرب كوب ماء قبل كل وجبة لتحسين الهضم', en: 'Drink a glass of water before each meal for better digestion', icon: '🍽️' },
+  { ar: 'الجفاف يسبب الصداع — اشرب الماء بانتظام', en: 'Dehydration causes headaches — drink water regularly', icon: '🤕' },
+  { ar: 'المياه القلوية تساعد على توازن حموضة الجسم', en: 'Alkaline water helps balance body pH', icon: '⚗️' },
+  { ar: 'اشرب الماء فور الاستيقاظ لتنشيط الجسم', en: 'Drink water right after waking up to activate your body', icon: '☀️' },
+  { ar: 'الفلاتر المنزلية تزيل ٩٩٪ من الملوثات', en: 'Home filters remove 99% of contaminants', icon: '🔧' },
+  { ar: 'استبدل المشروبات الغازية بالماء لصحة أفضل', en: 'Replace sodas with water for better health', icon: '🥤' },
+];
+
+const DELIVERY_AREAS = [
+  { ar: 'العاصمة', en: 'Capital', time: '20-30', areas: { ar: 'الشرق، المرقاب، دسمان، المدينة', en: 'Sharq, Mirqab, Dasman, Kuwait City' } },
+  { ar: 'حولي', en: 'Hawalli', time: '25-35', areas: { ar: 'السالمية، حولي، الجابرية، مشرف، بيان', en: 'Salmiya, Hawalli, Jabriya, Mishref, Bayan' } },
+  { ar: 'الفروانية', en: 'Farwaniya', time: '30-40', areas: { ar: 'الفروانية، خيطان، جليب الشيوخ، العارضية', en: 'Farwaniya, Khaitan, Jleeb, Ardiya' } },
+  { ar: 'الأحمدي', en: 'Ahmadi', time: '30-45', areas: { ar: 'المنقف، المهبولة، الفنطاس، أبو حليفة', en: 'Mangaf, Mahboula, Fintas, Abu Halifa' } },
+  { ar: 'الجهراء', en: 'Jahra', time: '35-50', areas: { ar: 'الجهراء، صليبية، الدوحة، النسيم', en: 'Jahra, Sulaibiya, Doha, Naseem' } },
+  { ar: 'مبارك الكبير', en: 'Mubarak Al-Kabeer', time: '25-40', areas: { ar: 'صباح السالم، القرين، العدان', en: 'Sabah Al-Salem, Qurain, Adan' } },
+];
+
+const NOTIFICATIONS = [
+  { id: 1, type: 'order', title: { ar: 'طلبك في الطريق!', en: 'Your order is on the way!' }, body: { ar: 'السائق أحمد على بعد ١٠ دقائق', en: 'Driver Ahmad is 10 minutes away' }, time: '5 min', read: false },
+  { id: 2, type: 'offer', title: { ar: 'عرض خاص — خصم ٢٠٪', en: 'Special offer — 20% OFF' }, body: { ar: 'على جميع القوارير من مياه نوفا', en: 'On all gallons from Nova Water' }, time: '1h', read: false },
+  { id: 3, type: 'points', title: { ar: 'ربحت ٥٠ نقطة!', en: 'You earned 50 points!' }, body: { ar: 'شكراً لطلبك الأخير — رصيدك ٢,٤٥٠ نقطة', en: 'Thanks for your last order — balance: 2,450 points' }, time: '2h', read: true },
+  { id: 4, type: 'info', title: { ar: 'مياه الصفا — منتج جديد', en: 'Al Safa — New product' }, body: { ar: 'جرّب مياهنا القلوية الجديدة pH 9.5', en: 'Try our new alkaline water pH 9.5' }, time: '1d', read: true },
+];
+
+const PROMO_BANNERS = [
+  { id: 1, title: { ar: 'وفّر ٢٠٪ على أول طلب', en: 'Save 20% on first order' }, sub: { ar: 'كود: FIRST', en: 'Code: FIRST' }, bg: 'linear-gradient(135deg, #0ea5e9, #6366f1)', icon: '🎉' },
+  { id: 2, title: { ar: 'اشتراك شهري — وفّر أكثر', en: 'Monthly plan — Save more' }, sub: { ar: 'توصيل أسبوعي تلقائي', en: 'Auto weekly delivery' }, bg: 'linear-gradient(135deg, #059669, #10b981)', icon: '📅' },
+  { id: 3, title: { ar: 'ادعو صديق واربح ٥٠٠ نقطة', en: 'Refer a friend, earn 500 pts' }, sub: { ar: 'كودك: ALI2026', en: 'Your code: ALI2026' }, bg: 'linear-gradient(135deg, #f59e0b, #ef4444)', icon: '🎁' },
+];
+
 const USER = { name: { ar: 'علي العنزي', en: 'Ali AlEnezi' }, phone: '+965 9xxx xxxx', email: 'ali@example.com', points: 2450, level: 2, totalOrders: 47, saved: 28.750, address: { ar: 'السالمية، قطعة ١٢، شارع عمان', en: 'Salmiya, Block 12, Oman Street' } };
 
 export default function MAI() {
@@ -328,7 +362,30 @@ export default function MAI() {
             </div>
           </div>
 
-          {/* Category filter */}
+          
+          {/* Company Info Cards */}
+          <div style={{ display: 'flex', gap: 8, padding: '12px 16px', overflowX: 'auto' }}>
+            <div style={{ flex: '0 0 auto', background: '#fff', borderRadius: 12, padding: '10px 14px', boxShadow: '0 1px 4px rgba(0,0,0,.04)', display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 18 }}>🕐</span>
+              <div><div style={{ fontSize: 10, color: '#9ca3af' }}>{lang === 'ar' ? 'ساعات العمل' : 'Working Hours'}</div><div style={{ fontSize: 12, fontWeight: 700 }}>{c.hours ? c.hours[lang] : '24/7'}</div></div>
+            </div>
+            <div style={{ flex: '0 0 auto', background: '#fff', borderRadius: 12, padding: '10px 14px', boxShadow: '0 1px 4px rgba(0,0,0,.04)', display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 18 }}>📞</span>
+              <div><div style={{ fontSize: 10, color: '#9ca3af' }}>{lang === 'ar' ? 'اتصل بنا' : 'Contact'}</div><div style={{ fontSize: 12, fontWeight: 700, direction: 'ltr' }}>{c.phone || '+965 xxxx xxxx'}</div></div>
+            </div>
+            <div style={{ flex: '0 0 auto', background: '#fff', borderRadius: 12, padding: '10px 14px', boxShadow: '0 1px 4px rgba(0,0,0,.04)', display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 18 }}>📍</span>
+              <div><div style={{ fontSize: 10, color: '#9ca3af' }}>{lang === 'ar' ? 'المنطقة' : 'Coverage'}</div><div style={{ fontSize: 12, fontWeight: 700 }}>{c.areas ? c.areas[lang] : (lang === 'ar' ? 'جميع الكويت' : 'All Kuwait')}</div></div>
+            </div>
+          </div>
+          {/* Certifications */}
+          {c.certs && <div style={{ display: 'flex', gap: 6, padding: '4px 16px 8px', flexWrap: 'wrap' }}>
+            {c.certs.map((cert, i) => (
+              <span key={i} style={{ fontSize: 10, padding: '3px 10px', borderRadius: 20, background: '#ecfdf5', color: '#059669', fontWeight: 600, border: '1px solid #d1fae5' }}>✓ {cert}</span>
+            ))}
+          </div>}
+
+{/* Category filter */}
           <div style={{ display: 'flex', gap: 6, padding: '12px 16px', overflowX: 'auto' }}>
             <button onClick={() => setSelectedCat(null)} style={{ padding: '6px 14px', borderRadius: 20, background: !selectedCat ? '#0ea5e9' : '#fff', color: !selectedCat ? '#fff' : '#6b7280', border: '1px solid #e5e7eb', fontSize: 12, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}>{t.viewAll}</button>
             {CATEGORIES.filter(cat => c.products.some(p => p.cat === cat.id)).map(cat => (
@@ -443,7 +500,21 @@ export default function MAI() {
               </div>
             </div>
 
-            {/* Top Companies */}
+            
+            {/* Promo Banners */}
+            <div style={{ padding: '8px 16px' }}>
+              <div style={{ display: 'flex', gap: 10, overflowX: 'auto', paddingBottom: 6 }}>
+                {PROMO_BANNERS.map(b => (
+                  <div key={b.id} style={{ flex: '0 0 auto', width: 260, background: b.bg, borderRadius: 16, padding: 18, color: '#fff', cursor: 'pointer' }}>
+                    <div style={{ fontSize: 28, marginBottom: 6 }}>{b.icon}</div>
+                    <div style={{ fontSize: 14, fontWeight: 800 }}>{b.title[lang]}</div>
+                    <div style={{ fontSize: 12, opacity: .8, marginTop: 4 }}>{b.sub[lang]}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+{/* Top Companies */}
             <div style={{ padding: '12px 16px' }}>
               <h3 style={{ fontSize: 16, fontWeight: 800, marginBottom: 10 }}>{t.topCompanies}</h3>
               {COMPANIES.filter(c => !searchQuery || c.name[lang].includes(searchQuery) || c.name[lang === 'ar' ? 'en' : 'ar'].toLowerCase().includes(searchQuery.toLowerCase())).map(c => (
@@ -457,10 +528,51 @@ export default function MAI() {
                 </div>
               ))}
             </div>
+          
+            {/* Water Tips */}
+            <div style={{ padding: '12px 16px' }}>
+              <h3 style={{ fontSize: 16, fontWeight: 800, marginBottom: 10 }}>{lang === 'ar' ? '💡 نصائح مائية' : '💡 Water Tips'}</h3>
+              <div style={{ background: 'linear-gradient(135deg, #ecfdf5, #f0f9ff)', borderRadius: 16, padding: 16 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <span style={{ fontSize: 32 }}>{WATER_TIPS[new Date().getDate() % WATER_TIPS.length].icon}</span>
+                  <div>
+                    <div style={{ fontSize: 13, fontWeight: 600, lineHeight: 1.6 }}>{WATER_TIPS[new Date().getDate() % WATER_TIPS.length][lang]}</div>
+                    <div style={{ fontSize: 10, color: '#6b7280', marginTop: 4 }}>{lang === 'ar' ? 'نصيحة اليوم' : 'Tip of the day'}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Delivery Areas */}
+            <div style={{ padding: '8px 16px 16px' }}>
+              <h3 style={{ fontSize: 16, fontWeight: 800, marginBottom: 10 }}>{lang === 'ar' ? '🗺️ مناطق التوصيل' : '🗺️ Delivery Areas'}</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 6 }}>
+                {DELIVERY_AREAS.map((a, i) => (
+                  <div key={i} style={{ background: '#fff', borderRadius: 12, padding: 10, boxShadow: '0 1px 4px rgba(0,0,0,.04)', textAlign: 'center' }}>
+                    <div style={{ fontSize: 13, fontWeight: 700 }}>{a[lang]}</div>
+                    <div style={{ fontSize: 11, color: '#0ea5e9', fontWeight: 600, marginTop: 2 }}>🕐 {a.time} min</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Quick Stats */}
+            <div style={{ padding: '0 16px 16px' }}>
+              <div style={{ background: 'linear-gradient(135deg, #1e293b, #334155)', borderRadius: 16, padding: 18, color: '#fff', display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}>
+                <div><div style={{ fontSize: 22, fontWeight: 900 }}>6</div><div style={{ fontSize: 10, opacity: .6 }}>{lang === 'ar' ? 'شركات' : 'Companies'}</div></div>
+                <div style={{ width: 1, background: 'rgba(255,255,255,.15)' }}></div>
+                <div><div style={{ fontSize: 22, fontWeight: 900 }}>38+</div><div style={{ fontSize: 10, opacity: .6 }}>{lang === 'ar' ? 'منتج' : 'Products'}</div></div>
+                <div style={{ width: 1, background: 'rgba(255,255,255,.15)' }}></div>
+                <div><div style={{ fontSize: 22, fontWeight: 900 }}>24/7</div><div style={{ fontSize: 10, opacity: .6 }}>{lang === 'ar' ? 'توصيل' : 'Delivery'}</div></div>
+                <div style={{ width: 1, background: 'rgba(255,255,255,.15)' }}></div>
+                <div><div style={{ fontSize: 22, fontWeight: 900 }}>6</div><div style={{ fontSize: 10, opacity: .6 }}>{lang === 'ar' ? 'محافظات' : 'Governorates'}</div></div>
+              </div>
+            </div>
           </>
         )}
 
-        {/* ═══ COMPANIES TAB ═══ */}
+
+                {/* ═══ COMPANIES TAB ═══ */}
         {tab === 'companies' && (
           <div style={{ padding: 16 }}>
             <h2 style={{ fontSize: 22, fontWeight: 900, marginBottom: 14 }}>{t.allCompanies}</h2>
@@ -529,7 +641,38 @@ export default function MAI() {
               <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 6 }}>{t.redeemPoints}</div>
             </div>
 
-            {/* Menu items */}
+            
+            {/* Referral Card */}
+            <div style={{ background: 'linear-gradient(135deg, #fef3c7, #fde68a)', borderRadius: 14, padding: 16, marginBottom: 12, border: '1px solid #fcd34d' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ fontSize: 28 }}>🎁</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: '#92400e' }}>{lang === 'ar' ? 'ادعو أصدقاءك' : 'Invite Friends'}</div>
+                  <div style={{ fontSize: 11, color: '#a16207', marginTop: 2 }}>{lang === 'ar' ? 'اربح ٥٠٠ نقطة لكل صديق يسجل!' : 'Earn 500 points for each friend!'}</div>
+                </div>
+              </div>
+              <div style={{ marginTop: 10, background: '#fff', borderRadius: 10, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span style={{ fontFamily: 'monospace', fontSize: 16, fontWeight: 700, color: '#92400e', letterSpacing: 2 }}>ALI2026</span>
+                <button style={{ padding: '6px 14px', borderRadius: 8, background: '#f59e0b', color: '#fff', border: 'none', fontSize: 11, fontWeight: 700, cursor: 'pointer' }}>{lang === 'ar' ? 'نسخ الكود' : 'Copy Code'}</button>
+              </div>
+            </div>
+
+            {/* Notifications */}
+            <div style={{ background: '#fff', borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: '0 1px 6px rgba(0,0,0,.04)' }}>
+              <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}>🔔 {t.notifications} <span style={{ background: '#ef4444', color: '#fff', fontSize: 10, padding: '1px 6px', borderRadius: 10, fontWeight: 700 }}>{NOTIFICATIONS.filter(n => !n.read).length}</span></h3>
+              {NOTIFICATIONS.slice(0, 3).map(n => (
+                <div key={n.id} style={{ display: 'flex', gap: 10, padding: '8px 0', borderBottom: '1px solid #f3f4f6', opacity: n.read ? 0.6 : 1 }}>
+                  <span style={{ fontSize: 20 }}>{n.type === 'order' ? '📦' : n.type === 'offer' ? '🏷️' : n.type === 'points' ? '⭐' : 'ℹ️'}</span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 12, fontWeight: 700 }}>{n.title[lang]}</div>
+                    <div style={{ fontSize: 11, color: '#6b7280', marginTop: 1 }}>{n.body[lang]}</div>
+                  </div>
+                  <span style={{ fontSize: 10, color: '#9ca3af', whiteSpace: 'nowrap' }}>{n.time}</span>
+                </div>
+              ))}
+            </div>
+
+{/* Menu items */}
             {[
               ['📝', t.editProfile, null],
               ['📍', t.myAddresses, null],
