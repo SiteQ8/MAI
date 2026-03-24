@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#0ea5e9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>MAI | ماي — Kuwait Water Delivery</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>💧</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--sky:#0ea5e9;--sky2:#0284c7;--sky3:#e0f2fe;--green:#059669;--red:#ef4444;--amber:#f59e0b;--purple:#8b5cf6;
+--bg:#f8fafc;--card:#fff;--border:#f1f5f9;--sh:0 1px 3px rgba(0,0,0,.04);
+--tx:#0f172a;--t2:#475569;--t3:#94a3b8;--t4:#cbd5e1;
+--r:14px;--nav:58px;--max:430px}
+html{font-size:16px}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;max-width:var(--max);margin:0 auto;overflow-x:hidden;position:relative}
+[dir="ltr"] body{font-family:'Inter','Tajawal',sans-serif}
+
+/* PAGE SYSTEM */
+.page{display:none;padding-bottom:calc(var(--nav) + 12px);min-height:100vh}
+.page.on{display:block}
+
+/* NAV */
+.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--max);background:#fff;border-top:1px solid var(--border);display:flex;height:var(--nav);padding-bottom:env(safe-area-inset-bottom);z-index:100}
+.bnav-i{flex:1;text-align:center;padding:6px 0;cursor:pointer}
+.bnav-i .ico{font-size:1.3rem;display:block;transition:transform .1s}
+.bnav-i.on .ico{transform:scale(1.1)}
+.bnav-i .lbl{font-size:.58rem;display:block;margin-top:1px;color:var(--t3);font-weight:500}
+.bnav-i.on .lbl{color:var(--sky);font-weight:700}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0ea5e9,#0284c7);padding:20px 16px 24px;color:#fff}
+.hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.hero-greet{font-size:.78rem;opacity:.8}
+.hero-name{font-size:1.25rem;font-weight:900}
+.hero-actions{display:flex;gap:8px}
+.hero-btn{background:rgba(255,255,255,.15);border:none;border-radius:8px;padding:6px 10px;color:#fff;font-size:.68rem;cursor:pointer;font-family:inherit;font-weight:600;backdrop-filter:blur(4px)}
+.hero-cart{position:relative}
+.cart-badge{position:absolute;top:-5px;right:-5px;background:var(--red);color:#fff;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;font-size:.52rem;font-weight:700}
+[dir="ltr"] .cart-badge{right:auto;left:-5px}
+.search{width:100%;padding:11px 16px 11px 40px;border-radius:12px;border:none;background:rgba(255,255,255,.18);color:#fff;font-size:.85rem;outline:none;font-family:inherit;backdrop-filter:blur(8px)}
+[dir="ltr"] .search{padding:11px 40px 11px 16px}
+.search::placeholder{color:rgba(255,255,255,.55)}
+.search-wrap{position:relative;margin-bottom:12px}
+.search-ico{position:absolute;top:50%;transform:translateY(-50%);left:14px;font-size:1rem}
+[dir="ltr"] .search-ico{left:auto;right:14px}
+.hero-stats{display:flex;gap:10px}
+.hero-stat{flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px;backdrop-filter:blur(4px)}
+.hero-stat-lbl{font-size:.6rem;opacity:.7}
+.hero-stat-val{font-size:1.1rem;font-weight:900;margin-top:2px}
+
+/* SECTION */
+.sec{padding:14px 16px 0}
+.sec-t{font-size:1rem;font-weight:800;margin-bottom:10px}
+
+/* CATEGORIES */
+.cats{display:flex;gap:8px;overflow-x:auto;padding:0 16px 6px;-webkit-overflow-scrolling:touch}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex:0 0 auto;width:68px;text-align:center;cursor:pointer}
+.cat-ico{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto 4px}
+.cat-lbl{font-size:.58rem;font-weight:600;color:var(--t2)}
+
+/* PROMO BANNERS */
+.promos{display:flex;gap:10px;overflow-x:auto;padding:0 16px 6px;-webkit-overflow-scrolling:touch}
+.promos::-webkit-scrollbar{display:none}
+.promo{flex:0 0 auto;width:250px;border-radius:16px;padding:16px;color:#fff;cursor:pointer}
+.promo-ico{font-size:1.6rem;margin-bottom:6px}
+.promo-t{font-size:.88rem;font-weight:800}
+.promo-s{font-size:.68rem;opacity:.8;margin-top:4px}
+
+/* CARDS */
+.card{background:var(--card);border-radius:var(--r);padding:14px;margin:0 16px 8px;box-shadow:var(--sh);display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .08s;border:1px solid var(--border)}
+.card:active{transform:scale(.98)}
+.card-logo{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+.card-info{flex:1;min-width:0}
+.card-name{font-size:.88rem;font-weight:700}
+.card-meta{font-size:.65rem;color:var(--t3);margin-top:2px}
+.card-arrow{color:var(--t4);font-size:1rem}
+
+/* PRODUCT CARD */
+.prod{background:var(--card);border-radius:var(--r);padding:14px;margin:0 16px 8px;box-shadow:var(--sh);display:flex;align-items:center;gap:12px;border:1px solid var(--border)}
+.prod-img{font-size:1.8rem;width:44px;text-align:center;flex-shrink:0}
+.prod-info{flex:1;min-width:0}
+.prod-name{font-size:.82rem;font-weight:700;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.prod-desc{font-size:.62rem;color:var(--t3);margin-top:2px}
+.prod-price{display:flex;align-items:center;gap:6px;margin-top:4px}
+.prod-now{font-size:.95rem;font-weight:800;color:var(--sky)}
+.prod-old{font-size:.72rem;color:var(--t3);text-decoration:line-through}
+.badge{font-size:.5rem;padding:2px 7px;border-radius:4px;font-weight:700}
+.badge-offer{background:#fef2f2;color:#dc2626}
+.badge-new{background:#ecfdf5;color:#059669}
+.badge-best{background:#eff6ff;color:#2563eb}
+.prod-add{width:36px;height:36px;border-radius:10px;background:var(--sky);border:none;color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.prod-add:active{transform:scale(.9)}
+
+/* COMPANY HERO */
+.comp-hero{padding:20px 16px;color:#fff;position:relative}
+.comp-hero-top{display:flex;align-items:center;gap:14px;margin-top:10px}
+.comp-hero-logo{font-size:2.6rem}
+.comp-hero-name{font-size:1.3rem;font-weight:900}
+.comp-hero-desc{font-size:.72rem;opacity:.85;margin-top:2px;line-height:1.5}
+.comp-stats{display:flex;gap:16px;margin-top:12px;font-size:.72rem;opacity:.9}
+.comp-back{background:rgba(255,255,255,.15);border:none;border-radius:8px;padding:6px 12px;color:#fff;font-size:.78rem;cursor:pointer;font-family:inherit;font-weight:600}
+
+/* INFO CARDS */
+.info-scroll{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.info-scroll::-webkit-scrollbar{display:none}
+.info-card{flex:0 0 auto;background:var(--card);border-radius:12px;padding:10px 14px;box-shadow:var(--sh);display:flex;align-items:center;gap:8px;border:1px solid var(--border)}
+.info-card-ico{font-size:1.1rem}
+.info-card-lbl{font-size:.55rem;color:var(--t3)}
+.info-card-val{font-size:.72rem;font-weight:700;direction:ltr}
+[dir="rtl"] .info-card-val{direction:ltr;text-align:right}
+
+/* CERTS */
+.certs{display:flex;gap:5px;padding:4px 16px 10px;flex-wrap:wrap}
+.cert{font-size:.55rem;padding:3px 10px;border-radius:20px;background:#ecfdf5;color:#059669;font-weight:600;border:1px solid #d1fae5}
+
+/* FILTER TABS */
+.ftabs{display:flex;gap:6px;padding:10px 16px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ftabs::-webkit-scrollbar{display:none}
+.ftab{padding:6px 14px;border-radius:20px;background:var(--card);border:1px solid var(--border);font-size:.68rem;font-weight:600;cursor:pointer;white-space:nowrap;font-family:inherit;color:var(--t2)}
+.ftab.on{background:var(--sky);color:#fff;border-color:var(--sky)}
+
+/* WATER TIP */
+.tip{margin:0 16px 10px;background:linear-gradient(135deg,#ecfdf5,#f0f9ff);border-radius:16px;padding:14px;display:flex;align-items:center;gap:10px}
+.tip-ico{font-size:1.8rem;flex-shrink:0}
+.tip-txt{font-size:.78rem;font-weight:600;line-height:1.6}
+.tip-lbl{font-size:.55rem;color:var(--t3);margin-top:3px}
+
+/* DELIVERY AREAS */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 16px 10px}
+.area{background:var(--card);border-radius:12px;padding:10px;text-align:center;box-shadow:var(--sh);border:1px solid var(--border)}
+.area-name{font-size:.78rem;font-weight:700}
+.area-time{font-size:.65rem;color:var(--sky);font-weight:600;margin-top:2px}
+
+/* STATS BAR */
+.stats-bar{margin:0 16px 14px;background:linear-gradient(135deg,#1e293b,#334155);border-radius:14px;padding:16px;display:flex;justify-content:space-around;text-align:center;color:#fff}
+.stat-val{font-size:1.25rem;font-weight:900}
+.stat-lbl{font-size:.52rem;opacity:.5;margin-top:2px}
+.stat-sep{width:1px;background:rgba(255,255,255,.12)}
+
+/* CHECKOUT / CART */
+.sheet{position:fixed;inset:0;background:#fff;z-index:200;overflow-y:auto;max-width:var(--max);margin:0 auto}
+.sheet-hdr{display:flex;align-items:center;gap:10px;padding:16px;position:sticky;top:0;background:#fff;z-index:5;border-bottom:1px solid var(--border)}
+.sheet-back{background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--tx)}
+.sheet-title{font-size:1.15rem;font-weight:800}
+.cart-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border)}
+.cart-item-img{font-size:1.6rem}
+.cart-item-info{flex:1}
+.cart-item-name{font-size:.82rem;font-weight:700}
+.cart-item-company{font-size:.62rem;color:var(--t3)}
+.cart-item-price{font-size:.88rem;font-weight:800;color:var(--sky);margin-top:2px}
+.qty-ctrl{display:flex;align-items:center;gap:8px}
+.qty-btn{width:28px;height:28px;border-radius:8px;border:none;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.qty-minus{background:#f1f5f9;color:var(--tx)}
+.qty-plus{background:var(--sky3);color:var(--sky)}
+.qty-val{font-weight:700;min-width:20px;text-align:center;font-size:.88rem}
+.cart-rm{background:none;border:none;color:var(--red);font-size:1rem;cursor:pointer;padding:4px}
+
+/* PAY METHOD */
+.pay-opt{display:flex;align-items:center;gap:10px;padding:12px;border-radius:10px;margin:0 16px 6px;cursor:pointer;border:2px solid var(--border);background:var(--card)}
+.pay-opt.on{border-color:var(--sky);background:#f0f9ff}
+.pay-ico{font-size:1.3rem}
+.pay-name{font-size:.85rem;font-weight:600;flex:1}
+.pay-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--t4);display:flex;align-items:center;justify-content:center}
+.pay-opt.on .pay-radio{border-color:var(--sky)}
+.pay-dot{width:10px;height:10px;border-radius:50%;background:var(--sky)}
+
+/* SUMMARY */
+.summary{background:var(--card);border-radius:var(--r);padding:16px;margin:12px 16px;border:1px solid var(--border)}
+.sum-row{display:flex;justify-content:space-between;padding:6px 0;font-size:.82rem}
+.sum-total{font-size:1.05rem;font-weight:900;padding-top:10px;margin-top:6px;border-top:2px solid var(--border)}
+.sum-free{color:var(--green);font-weight:600}
+.sum-disc{color:var(--green)}
+
+/* CTA */
+.cta{padding:12px 16px;position:sticky;bottom:0;background:#fff;border-top:1px solid var(--border)}
+.cta-btn{width:100%;padding:15px;border-radius:14px;border:none;color:#fff;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit}
+.cta-sky{background:linear-gradient(135deg,#0ea5e9,#3b82f6);box-shadow:0 4px 16px rgba(14,165,233,.3)}
+.cta-green{background:linear-gradient(135deg,#059669,#10b981);box-shadow:0 4px 16px rgba(5,150,105,.3)}
+
+/* FLOAT CART */
+.float-cart{position:fixed;bottom:calc(var(--nav) + 10px);left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:calc(var(--max) - 32px);background:var(--sky);border-radius:14px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;color:#fff;cursor:pointer;box-shadow:0 8px 24px rgba(14,165,233,.35);z-index:50}
+.float-cart-count{background:rgba(255,255,255,.25);border-radius:8px;padding:2px 8px;font-size:.82rem;font-weight:700}
+.float-cart-total{font-size:1rem;font-weight:800}
+
+/* ORDER SUCCESS */
+.success{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px;text-align:center;background:linear-gradient(135deg,#ecfdf5,#f0f9ff)}
+.success-ico{font-size:5rem;margin-bottom:16px}
+.success-t{font-size:1.5rem;font-weight:900;color:var(--green)}
+.success-s{font-size:.88rem;color:var(--t2);margin-top:6px}
+
+/* PROFILE */
+.prof-card{background:linear-gradient(135deg,#1e293b,#334155);border-radius:20px;padding:24px;color:#fff;margin:16px;text-align:center}
+.prof-avatar{width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 10px;box-shadow:0 4px 16px rgba(14,165,233,.4)}
+.prof-name{font-size:1.2rem;font-weight:900}
+.prof-level{display:inline-flex;align-items:center;gap:4px;padding:3px 12px;border-radius:20px;font-size:.6rem;font-weight:700;margin-top:6px}
+.prof-stats{display:flex;gap:8px;margin-top:16px}
+.prof-stat{flex:1;background:rgba(255,255,255,.08);border-radius:12px;padding:10px}
+.prof-stat-val{font-size:1rem;font-weight:900}
+.prof-stat-lbl{font-size:.52rem;opacity:.5;margin-top:2px}
+
+.prof-pts{background:var(--card);border-radius:var(--r);padding:16px;margin:0 16px 10px;border:1px solid var(--border)}
+.pts-bar-bg{background:#f3f4f6;border-radius:4px;height:8px;overflow:hidden;margin-top:8px}
+.pts-bar{height:100%;background:linear-gradient(90deg,#f59e0b,#eab308);border-radius:4px}
+
+.refer{margin:0 16px 10px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:var(--r);padding:16px;border:1px solid #fcd34d}
+.refer-code{margin-top:10px;background:#fff;border-radius:10px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
+.refer-code-txt{font-family:'IBM Plex Mono',monospace;font-size:1rem;font-weight:700;color:#92400e;letter-spacing:2px}
+.refer-copy{padding:6px 14px;border-radius:8px;background:#f59e0b;color:#fff;border:none;font-size:.68rem;font-weight:700;cursor:pointer;font-family:inherit}
+
+.menu-item{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--card);border-bottom:1px solid var(--border);cursor:pointer}
+.menu-ico{font-size:1.1rem;width:28px;text-align:center}
+.menu-lbl{font-size:.88rem;font-weight:600;flex:1}
+.menu-arr{color:var(--t4);font-size:.82rem}
+.notif-badge{background:var(--red);color:#fff;font-size:.52rem;padding:1px 5px;border-radius:8px;font-weight:700}
+
+/* ORDER ITEM */
+.order{background:var(--card);border-radius:var(--r);padding:14px 16px;margin:0 16px 8px;border:1px solid var(--border)}
+.order-top{display:flex;justify-content:space-between;margin-bottom:8px}
+.order-id{font-family:monospace;font-size:.78rem;font-weight:700;color:var(--t2)}
+.order-status{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:6px}
+.order-company{font-size:.88rem;font-weight:700}
+.order-meta{font-size:.72rem;color:var(--t3);margin-top:2px}
+.order-progress{margin-top:10px;background:#f3f4f6;border-radius:6px;height:6px;overflow:hidden}
+.order-bar{height:100%;background:linear-gradient(90deg,#0ea5e9,#3b82f6);border-radius:6px}
+
+.empty{text-align:center;padding:50px 20px;color:var(--t3)}
+.empty-ico{font-size:3.5rem;margin-bottom:10px;opacity:.4}
+.empty-txt{font-size:.95rem;font-weight:600}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.card,.prod,.order,.area,.info-card{animation:fadeUp .25s ease both}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+
+// ═══ STATE ═══
+var S = { lang:'ar', tab:'home', page:'home', cart:[], company:null, showCart:false, showCheckout:false, orderPlaced:false, payMethod:'knet', promo:'', promoOk:false, search:'', catFilter:null };
+
+// ═══ TEXT ═══
+var T={ar:{app:'ماي',tag:'توصيل مياه الكويت',home:'الرئيسية',companies:'الشركات',orders:'طلباتي',profile:'حسابي',search:'ابحث عن شركة أو منتج...',featured:'عروض مميزة',topCompanies:'أفضل الشركات',categories:'التصنيفات',addToCart:'أضف',kd:'د.ك',items:'عناصر',checkout:'إتمام الطلب',total:'المجموع',delivery:'التوصيل',free:'مجاني',subtotal:'المجموع الفرعي',cart:'السلة',emptyCart:'سلتك فارغة',points:'نقاط',level:'المستوى',saved:'وفّرت',silverMember:'عضو فضي',editProfile:'تعديل الحساب',myAddresses:'عناويني',notifications:'الإشعارات',helpCenter:'مركز المساعدة',langSwitch:'English',logout:'تسجيل الخروج',payMethod:'طريقة الدفع',knet:'كي نت',creditCard:'بطاقة ائتمان',cod:'الدفع عند الاستلام',applePay:'Apple Pay',deliveryAddr:'عنوان التوصيل',placeOrder:'تأكيد الطلب',orderPlaced:'تم الطلب بنجاح!',orderTrack:'سيتم التوصيل خلال ٣٠-٤٥ دقيقة',back:'رجوع',products:'المنتجات',rating:'التقييم',minOrder:'الحد الأدنى',offer:'عرض',off:'خصم',newBadge:'جديد',bestSeller:'الأكثر مبيعاً',bottled:'مياه معبأة',gallon:'قوارير',filter:'فلاتر',dispenser:'برادات',subscription:'اشتراكات',accessories:'إكسسوارات',earnPts:'اكسب نقاط مع كل طلب!',noOrders:'لا توجد طلبات بعد',activeOrders:'طلبات نشطة',confirmed:'تم التأكيد',preparing:'جاري التحضير',onTheWay:'في الطريق',delivered:'تم التوصيل',remove:'حذف',promoCode:'كود خصم',apply:'تطبيق',promoApplied:'تم تطبيق الخصم',goodMorning:'صباح الخير',goodEvening:'مساء الخير',viewAll:'الكل',inviteFriends:'ادعو أصدقاءك',earnRefer:'اربح ٥٠٠ نقطة لكل صديق!',copyCode:'نسخ الكود',tipDay:'نصيحة اليوم',deliveryAreas:'مناطق التوصيل',waterTips:'نصائح مائية',orderSummary:'ملخص الطلب',allCompanies:'جميع الشركات',orders_count:'طلب'},
+en:{app:'MAI',tag:'Kuwait Water Delivery',home:'Home',companies:'Companies',orders:'Orders',profile:'Profile',search:'Search companies or products...',featured:'Featured Offers',topCompanies:'Top Companies',categories:'Categories',addToCart:'Add',kd:'KD',items:'items',checkout:'Checkout',total:'Total',delivery:'Delivery',free:'Free',subtotal:'Subtotal',cart:'Cart',emptyCart:'Your cart is empty',points:'Points',level:'Level',saved:'Saved',silverMember:'Silver Member',editProfile:'Edit Profile',myAddresses:'My Addresses',notifications:'Notifications',helpCenter:'Help Center',langSwitch:'العربية',logout:'Log Out',payMethod:'Payment Method',knet:'KNET',creditCard:'Credit Card',cod:'Cash on Delivery',applePay:'Apple Pay',deliveryAddr:'Delivery Address',placeOrder:'Place Order',orderPlaced:'Order Placed!',orderTrack:'Delivery in 30-45 minutes',back:'Back',products:'Products',rating:'Rating',minOrder:'Min Order',offer:'Offer',off:'OFF',newBadge:'New',bestSeller:'Best Seller',bottled:'Bottled',gallon:'Gallons',filter:'Filters',dispenser:'Dispensers',subscription:'Subscriptions',accessories:'Accessories',earnPts:'Earn points with every order!',noOrders:'No orders yet',activeOrders:'Active Orders',confirmed:'Confirmed',preparing:'Preparing',onTheWay:'On the way',delivered:'Delivered',remove:'Remove',promoCode:'Promo Code',apply:'Apply',promoApplied:'Promo applied',goodMorning:'Good morning',goodEvening:'Good evening',viewAll:'All',inviteFriends:'Invite Friends',earnRefer:'Earn 500 pts per referral!',copyCode:'Copy Code',tipDay:'Tip of the day',deliveryAreas:'Delivery Areas',waterTips:'Water Tips',orderSummary:'Order Summary',allCompanies:'All Companies',orders_count:'Orders'}};
+
+function t(k){return T[S.lang][k]||k}
+
+// ═══ DATA ═══
+var CH=[
+{id:1,name:{ar:'مياه أبراج',en:'Abraaj Water'},logo:'💧',rating:4.8,reviews:3200,delivery:'25 min',minOrder:2,color:'#0ea5e9',featured:1,desc:{ar:'تأسست ٢٠٠٢ — ISO 22000 · HACCP · NSF',en:'Est. 2002 — ISO 22000 · HACCP · NSF certified'},hours:{ar:'٢٤ ساعة',en:'24/7'},phone:'1888030',certs:['ISO 22000','HACCP','NSF'],areas:{ar:'جميع الكويت',en:'All Kuwait'},products:[
+{id:101,name:{ar:'أبراج ٥٠٠ مل (٢٤)',en:'Abraaj 500ml (×24)'},price:1.250,old:1.500,img:'💧',cat:'bottled',badge:'offer',desc:{ar:'حجم مثالي للتنقل',en:'Perfect travel size'}},
+{id:102,name:{ar:'أبراج ١.٥ لتر (١٢)',en:'Abraaj 1.5L (×12)'},price:1.750,img:'💧',cat:'bottled',badge:'best',desc:{ar:'الأكثر مبيعاً للعائلات',en:'Best seller for families'}},
+{id:103,name:{ar:'أبراج ٣٣٠ مل (٤٠)',en:'Abraaj 330ml (×40)'},price:1.650,img:'💧',cat:'bottled',desc:{ar:'للمكاتب والديوانيات',en:'For offices & diwaniyas'}},
+{id:104,name:{ar:'أبراج ٢٠٠ مل كوب (٣٦)',en:'Abraaj 200ml Cup (×36)'},price:0.950,img:'💧',cat:'bottled'},
+{id:105,name:{ar:'قارورة ١٨.٩ لتر',en:'18.9L Gallon'},price:0.750,img:'🪣',cat:'gallon',badge:'best'},
+{id:106,name:{ar:'٥ قوارير ١٨.٩ لتر',en:'5× Gallon Bundle'},price:3.250,old:3.750,img:'🪣',cat:'gallon',badge:'offer'},
+{id:107,name:{ar:'برادة ساخن/بارد',en:'Hot/Cold Dispenser'},price:42.000,img:'🚰',cat:'dispenser'},
+{id:108,name:{ar:'اشتراك شهري ١٠ قوارير',en:'Monthly — 10 Gallons'},price:6.500,img:'📅',cat:'subscription',badge:'best'},
+{id:109,name:{ar:'أبراج سبورت ٧٥٠ مل (٢٤)',en:'Sport 750ml (×24)'},price:2.100,img:'💧',cat:'bottled',badge:'new'}]},
+{id:2,name:{ar:'الروضتين',en:'Al Rawdatain'},logo:'🏔️',rating:4.9,reviews:4100,delivery:'20 min',minOrder:1.5,color:'#0284c7',featured:1,desc:{ar:'الشركة الرائدة في تعبئة المياه — مياه جوفية كويتية',en:'Kuwait\'s leading bottler — natural underground water'},hours:{ar:'٧ ص - ١٠ م',en:'7AM-10PM'},phone:'1828282',certs:['ISO 9001','KISR'],areas:{ar:'جميع المحافظات',en:'All governorates'},products:[
+{id:201,name:{ar:'الروضتين ٥٠٠ مل (٢٤)',en:'Rawdatain 500ml (×24)'},price:1.350,img:'💧',cat:'bottled',badge:'best'},
+{id:202,name:{ar:'الروضتين ١.٥ لتر (١٢)',en:'Rawdatain 1.5L (×12)'},price:1.800,img:'💧',cat:'bottled'},
+{id:203,name:{ar:'الروضتين ٥ لتر (٤)',en:'Rawdatain 5L (×4)'},price:1.600,img:'💧',cat:'bottled'},
+{id:204,name:{ar:'قارورة ١٨.٩ لتر',en:'18.9L Gallon'},price:0.800,img:'🪣',cat:'gallon'},
+{id:205,name:{ar:'١٠ قوارير',en:'10 Gallon Bundle'},price:7.000,old:8.000,img:'🪣',cat:'gallon',badge:'offer'},
+{id:206,name:{ar:'برادة ذكية تبريد فوري',en:'Smart Instant-Cool Dispenser'},price:55.000,img:'🚰',cat:'dispenser',badge:'new'},
+{id:207,name:{ar:'اشتراك عائلي ١٥ قارورة/شهر',en:'Family Plan 15 Gal/mo'},price:10.500,img:'📅',cat:'subscription'},
+{id:208,name:{ar:'الروضتين فوّار ٣٣٠ مل (٢٤)',en:'Sparkling 330ml (×24)'},price:2.400,img:'✨',cat:'bottled',badge:'new'}]},
+{id:3,name:{ar:'أكوا كول',en:'Aqua Cool'},logo:'🌊',rating:4.7,reviews:2500,delivery:'30 min',minOrder:2,color:'#06b6d4',featured:1,desc:{ar:'توصيل مجاني لجميع مناطق الكويت — تقنية التناضح العكسي',en:'Free delivery all Kuwait — Reverse Osmosis technology'},hours:{ar:'٦ ص - ١٢ م',en:'6AM-12AM'},phone:'1888030',certs:['ISO 22000','HACCP'],products:[
+{id:301,name:{ar:'أكوا كول ٥٠٠ مل (٢٤)',en:'Aqua Cool 500ml (×24)'},price:1.100,img:'💧',cat:'bottled'},
+{id:302,name:{ar:'أكوا كول ١.٥ لتر (١٢)',en:'Aqua Cool 1.5L (×12)'},price:1.500,img:'💧',cat:'bottled',badge:'best'},
+{id:303,name:{ar:'قارورة ٥ جالون',en:'5 Gallon'},price:0.600,img:'🪣',cat:'gallon',badge:'best',desc:{ar:'أرخص قارورة في الكويت',en:'Kuwait\'s cheapest gallon'}},
+{id:304,name:{ar:'٨ قوارير',en:'8 Gallon Bundle'},price:4.200,old:4.800,img:'🪣',cat:'gallon',badge:'offer'},
+{id:305,name:{ar:'برادة طاولة',en:'Countertop Dispenser'},price:28.000,img:'🚰',cat:'dispenser'}]},
+{id:4,name:{ar:'أكوا جلف',en:'Aqua Gulf'},logo:'🌅',rating:4.6,reviews:1800,delivery:'35 min',minOrder:2,color:'#7c3aed',desc:{ar:'مياه معدنية وقلوية — الإمارات',en:'Mineral & alkaline — UAE based'},phone:'50907710',certs:['ISO 22000'],products:[
+{id:401,name:{ar:'أكوا جلف معدنية ٥٠٠ مل (٢٤)',en:'AG Mineral 500ml (×24)'},price:1.300,img:'💧',cat:'bottled'},
+{id:402,name:{ar:'قلوية pH 9.5 (٢٤)',en:'Alkaline pH 9.5 (×24)'},price:2.400,img:'💎',cat:'bottled',badge:'new'},
+{id:403,name:{ar:'قارورة ١٨.٩ لتر',en:'18.9L Gallon'},price:0.700,img:'🪣',cat:'gallon'},
+{id:404,name:{ar:'فلتر RO ٥ مراحل',en:'5-Stage RO Filter'},price:35.000,img:'🔧',cat:'filter',desc:{ar:'تركيب مجاني',en:'Free installation'}}]},
+{id:5,name:{ar:'مياه العين',en:'Al Ain Water'},logo:'⛰️',rating:4.7,reviews:2200,delivery:'25 min',minOrder:1,color:'#059669',desc:{ar:'مياه طبيعية غنية بالمعادن — ٢٤ ساعة',en:'Natural mineral water — 24/7 delivery'},phone:'60984798',certs:['ISO 22000','ESMA'],products:[
+{id:501,name:{ar:'العين ٥٠٠ مل (٢٤)',en:'Al Ain 500ml (×24)'},price:1.200,img:'💧',cat:'bottled'},
+{id:502,name:{ar:'العين ١.٥ لتر (١٢)',en:'Al Ain 1.5L (×12)'},price:1.650,img:'💧',cat:'bottled',badge:'best'},
+{id:503,name:{ar:'زيرو صوديوم (٢٤)',en:'Zero Sodium (×24)'},price:1.450,img:'💧',cat:'bottled',badge:'new',desc:{ar:'لمرضى الضغط',en:'For BP patients'}},
+{id:504,name:{ar:'قارورة ١٨.٩ لتر',en:'18.9L Gallon'},price:0.850,img:'🪣',cat:'gallon'}]},
+{id:6,name:{ar:'كي دي كاو',en:'KD Cow'},logo:'🥛',rating:4.5,reviews:3800,delivery:'30 min',minOrder:3,color:'#dc2626',desc:{ar:'تأسست ١٩٦٠ — ألبان ومياه',en:'Est. 1960 — Dairy & water'},phone:'1800180',certs:['HACCP'],products:[
+{id:601,name:{ar:'كي دي ٥٠٠ مل (٢٤)',en:'KD 500ml (×24)'},price:1.050,img:'💧',cat:'bottled'},
+{id:602,name:{ar:'قارورة ١٨.٩ لتر',en:'18.9L Gallon'},price:0.550,img:'🪣',cat:'gallon',badge:'best',desc:{ar:'أرخص قارورة — منذ ١٩٦٠',en:'Cheapest — since 1960'}},
+{id:603,name:{ar:'اشتراك يومي',en:'Daily Plan'},price:15.000,img:'📅',cat:'subscription',badge:'new'}]},
+{id:7,name:{ar:'ماسافي',en:'Masafi'},logo:'🗻',rating:4.8,reviews:5200,delivery:'25 min',minOrder:2,color:'#1d4ed8',featured:1,desc:{ar:'مياه جبال الحجر — الأكثر ثقة خليجياً',en:'Hajar Mountains — Gulf\'s most trusted'},phone:'22450045',certs:['ISO 22000','NSF','FDA'],products:[
+{id:701,name:{ar:'ماسافي ٥٠٠ مل (٢٤)',en:'Masafi 500ml (×24)'},price:1.400,img:'💧',cat:'bottled',badge:'best'},
+{id:702,name:{ar:'ماسافي ١.٥ لتر (١٢)',en:'Masafi 1.5L (×12)'},price:1.850,img:'💧',cat:'bottled'},
+{id:703,name:{ar:'توتش نكهات ٥٠٠ مل',en:'Touch Flavored 500ml'},price:0.250,img:'🍋',cat:'bottled',badge:'new',desc:{ar:'ليمون، توت، فراولة',en:'Lemon, Berry, Strawberry'}},
+{id:704,name:{ar:'قارورة ١٨.٩ لتر',en:'18.9L Gallon'},price:0.900,img:'🪣',cat:'gallon'}]},
+{id:8,name:{ar:'سوفت ووتر',en:'Soft Water'},logo:'🔧',rating:4.6,reviews:980,delivery:'2-3 days',minOrder:15,color:'#8b5cf6',desc:{ar:'وكيل إيكوسوفت البلجيكية — فلاتر وأنظمة تنقية',en:'Ecosoft Belgium agent — Filters & purification'},phone:'22273322',certs:['Ecosoft','BWT','ISO 9001'],products:[
+{id:801,name:{ar:'فلتر RO ٧ مراحل',en:'7-Stage RO Filter'},price:65.000,img:'🔧',cat:'filter',badge:'best',desc:{ar:'الأفضل في الكويت',en:'Kuwait\'s best filter'}},
+{id:802,name:{ar:'فلتر ٥ مراحل',en:'5-Stage Filter'},price:38.000,img:'🔧',cat:'filter'},
+{id:803,name:{ar:'فلتر ٣ مراحل',en:'3-Stage Kitchen'},price:22.000,old:28.000,img:'🔧',cat:'filter',badge:'offer'},
+{id:804,name:{ar:'تحلية مركزية فيلا',en:'Villa Central System'},price:350.000,img:'🏠',cat:'filter',badge:'new'},
+{id:805,name:{ar:'حامل قوارير ستيل',en:'Steel Gallon Stand'},price:12.000,img:'🗄️',cat:'accessories'}]},
+{id:9,name:{ar:'وتر سوق',en:'Watersouq'},logo:'🛒',rating:4.5,reviews:1500,delivery:'4 hrs',minOrder:5,color:'#ea580c',desc:{ar:'أكبر متجر مياه أونلاين — ماركات عالمية',en:'Largest online water store — global brands'},phone:'22250025',products:[
+{id:901,name:{ar:'فيجي ٥٠٠ مل (٢٤)',en:'Fiji 500ml (×24)'},price:4.500,img:'🏝️',cat:'bottled',badge:'new'},
+{id:902,name:{ar:'إيفيان ٥٠٠ مل (٢٤)',en:'Evian 500ml (×24)'},price:3.800,img:'🏔️',cat:'bottled'},
+{id:903,name:{ar:'فوس ٨٠٠ مل (١٢)',en:'Voss 800ml (×12)'},price:5.500,img:'🇳🇴',cat:'bottled'},
+{id:904,name:{ar:'سان بيليغرينو (٢٤)',en:'San Pellegrino (×24)'},price:4.000,img:'🇮🇹',cat:'bottled'}]},
+{id:10,name:{ar:'مياه ABC',en:'ABC Water'},logo:'🇰🇼',rating:4.4,reviews:750,delivery:'35 min',minOrder:2,color:'#16a34a',desc:{ar:'منتج كويتي ١٠٠٪ — أسعار اقتصادية',en:'100% Kuwaiti — Economic prices'},phone:'24742666',certs:['Kuwait Quality'],products:[
+{id:1001,name:{ar:'ABC ٥٠٠ مل (٢٤)',en:'ABC 500ml (×24)'},price:0.950,img:'💧',cat:'bottled',badge:'best',desc:{ar:'الأرخص في الكويت',en:'Kuwait\'s cheapest'}},
+{id:1002,name:{ar:'قارورة ١٨.٩ لتر',en:'18.9L Gallon'},price:0.500,img:'🪣',cat:'gallon',badge:'offer',desc:{ar:'أرخص قارورة!',en:'Cheapest gallon!'}},
+{id:1003,name:{ar:'١٠ قوارير',en:'10 Gallon Pack'},price:4.500,old:5.000,img:'🪣',cat:'gallon',badge:'offer'}]}
+];
+
+var CATS=[{id:'bottled',icon:'💧',color:'#0ea5e9'},{id:'gallon',icon:'🪣',color:'#06b6d4'},{id:'filter',icon:'🔧',color:'#8b5cf6'},{id:'dispenser',icon:'🚰',color:'#f59e0b'},{id:'subscription',icon:'📅',color:'#10b981'},{id:'accessories',icon:'🗄️',color:'#6366f1'}];
+
+var TIPS=[{ar:'اشرب ٨ أكواب ماء يومياً للحفاظ على صحتك',en:'Drink 8 glasses of water daily',ico:'💧'},{ar:'الماء البارد يساعد على حرق السعرات',en:'Cold water helps burn calories',ico:'❄️'},{ar:'اشرب كوب ماء قبل كل وجبة',en:'Drink water before each meal',ico:'🍽️'},{ar:'المياه القلوية تساعد على توازن الجسم',en:'Alkaline water helps balance pH',ico:'⚗️'},{ar:'اشرب الماء فور الاستيقاظ',en:'Drink water right after waking up',ico:'☀️'}];
+
+var AREAS=[{ar:'العاصمة',en:'Capital',time:'20-30'},{ar:'حولي',en:'Hawalli',time:'25-35'},{ar:'الفروانية',en:'Farwaniya',time:'30-40'},{ar:'الأحمدي',en:'Ahmadi',time:'30-45'},{ar:'الجهراء',en:'Jahra',time:'35-50'},{ar:'مبارك الكبير',en:'Mubarak',time:'25-40'}];
+
+var ORDERS=[{id:'ORD-2847',co:'مياه أبراج',items:3,total:4.750,status:'onTheWay',progress:75},{id:'ORD-2831',co:'الروضتين',items:1,total:12.000,status:'delivered',progress:100},{id:'ORD-2815',co:'أكوا كول',items:5,total:8.250,status:'delivered',progress:100}];
+
+var USER={name:{ar:'علي العنزي',en:'Ali AlEnezi'},pts:2450,orders:47,saved:28.750,addr:{ar:'السالمية، قطعة ١٢، شارع عمان',en:'Salmiya, Block 12, Oman Street'}};
+
+var PROMOS=[{title:{ar:'وفّر ٢٠٪ على أول طلب',en:'Save 20% on first order'},sub:{ar:'كود: FIRST',en:'Code: FIRST'},bg:'linear-gradient(135deg,#0ea5e9,#6366f1)',ico:'🎉'},{title:{ar:'اشتراك شهري',en:'Monthly subscription'},sub:{ar:'توصيل تلقائي',en:'Auto delivery'},bg:'linear-gradient(135deg,#059669,#10b981)',ico:'📅'},{title:{ar:'ادعو صديق — ٥٠٠ نقطة',en:'Refer friend — 500 pts'},sub:{ar:'كودك: ALI2026',en:'Code: ALI2026'},bg:'linear-gradient(135deg,#f59e0b,#ef4444)',ico:'🎁'}];
+
+// ═══ HELPERS ═══
+function n(tag,attrs,children){var el=document.createElement(tag);if(attrs)Object.keys(attrs).forEach(function(k){if(k==='onclick')el.onclick=attrs[k];else if(k==='className')el.className=attrs[k];else if(k==='innerHTML')el.innerHTML=attrs[k];else if(k==='style'&&typeof attrs[k]==='object'){Object.assign(el.style,attrs[k])}else el.setAttribute(k,attrs[k])});if(children){if(typeof children==='string')el.textContent=children;else if(Array.isArray(children))children.forEach(function(c){if(c)el.appendChild(typeof c==='string'?document.createTextNode(c):c)})}return el}
+function cartTotal(){return S.cart.reduce(function(s,i){return s+i.p.price*i.qty},0)}
+function cartCount(){return S.cart.reduce(function(s,i){return s+i.qty},0)}
+function addCart(p,c){var ex=S.cart.find(function(i){return i.p.id===p.id});if(ex)ex.qty++;else S.cart.push({p:p,co:c,qty:1});render()}
+function rmCart(pid){S.cart=S.cart.filter(function(i){return i.p.id!==pid});render()}
+function updQty(pid,d){S.cart.forEach(function(i){if(i.p.id===pid)i.qty=Math.max(1,i.qty+d)});render()}
+
+// ═══ RENDER ═══
+function render(){
+var root=document.getElementById('app');root.innerHTML='';
+var lang=S.lang;var isRtl=lang==='ar';
+document.getElementById('root').dir=isRtl?'rtl':'ltr';
+document.getElementById('root').lang=lang;
+var greeting=new Date().getHours()<12?t('goodMorning'):t('goodEvening');
+
+// ORDER SUCCESS
+if(S.orderPlaced){
+root.appendChild(renderSuccess());return}
+// CHECKOUT
+if(S.showCheckout){root.appendChild(renderCheckout());return}
+// CART
+if(S.showCart){root.appendChild(renderCart());return}
+// COMPANY
+if(S.page==='company'&&S.company){root.appendChild(renderCompany());renderFloatCart(root);renderNav(root);return}
+
+// MAIN TABS
+var pages={home:renderHome,companies:renderCompaniesPage,orders:renderOrders,profile:renderProfile};
+var pg=pages[S.tab]();root.appendChild(pg);
+renderFloatCart(root);renderNav(root);
+}
+
+// ═══ HOME ═══
+function renderHome(){
+var d=document.createDocumentFragment();var pg=n('div',{className:'page on',id:'pg-home'});
+
+// Hero
+var hero=n('div',{className:'hero'});
+var top=n('div',{className:'hero-top'});
+var left=n('div',{});left.appendChild(n('div',{className:'hero-greet'},new Date().getHours()<12?t('goodMorning'):t('goodEvening')+' 👋'));left.appendChild(n('div',{className:'hero-name'},USER.name[S.lang]));
+var right=n('div',{className:'hero-actions'});
+right.appendChild(n('button',{className:'hero-btn',onclick:function(){S.lang=S.lang==='ar'?'en':'ar';render()}},t('langSwitch')));
+var cartBtn=n('div',{className:'hero-btn hero-cart',onclick:function(){S.showCart=true;render()},innerHTML:'🛒'});
+if(cartCount()>0)cartBtn.appendChild(n('span',{className:'cart-badge'},String(cartCount())));
+right.appendChild(cartBtn);
+top.appendChild(left);top.appendChild(right);hero.appendChild(top);
+
+// Search
+var sw=n('div',{className:'search-wrap'});
+sw.appendChild(n('span',{className:'search-ico'},'🔍'));
+var si=n('input',{className:'search',placeholder:t('search'),type:'text'});
+si.value=S.search;si.oninput=function(){S.search=this.value;render()};
+sw.appendChild(si);hero.appendChild(sw);
+
+// Stats
+var stats=n('div',{className:'hero-stats'});
+var s1=n('div',{className:'hero-stat'});s1.appendChild(n('div',{className:'hero-stat-lbl'},t('points')));s1.appendChild(n('div',{className:'hero-stat-val'},'⭐ '+USER.pts.toLocaleString()));
+var s2=n('div',{className:'hero-stat'});s2.appendChild(n('div',{className:'hero-stat-lbl'},t('saved')));s2.appendChild(n('div',{className:'hero-stat-val'},USER.saved.toFixed(3)+' '+t('kd')));
+stats.appendChild(s1);stats.appendChild(s2);hero.appendChild(stats);
+pg.appendChild(hero);
+
+// Categories
+var sec1=n('div',{className:'sec'});sec1.appendChild(n('div',{className:'sec-t'},t('categories')));pg.appendChild(sec1);
+var cats=n('div',{className:'cats'});
+CATS.forEach(function(c){var ci=n('div',{className:'cat'});var ico=n('div',{className:'cat-ico',style:{background:c.color+'15'}});ico.textContent=c.icon;ci.appendChild(ico);ci.appendChild(n('div',{className:'cat-lbl'},t(c.id)));cats.appendChild(ci)});
+pg.appendChild(cats);
+
+// Promos
+var sec2=n('div',{className:'sec'});sec2.appendChild(n('div',{className:'sec-t'},t('featured')+' 🔥'));pg.appendChild(sec2);
+var promos=n('div',{className:'promos'});
+PROMOS.forEach(function(p){var pr=n('div',{className:'promo',style:{background:p.bg}});pr.appendChild(n('div',{className:'promo-ico'},p.ico));pr.appendChild(n('div',{className:'promo-t'},p.title[S.lang]));pr.appendChild(n('div',{className:'promo-s'},p.sub[S.lang]));promos.appendChild(pr)});
+pg.appendChild(promos);
+
+// Featured offers
+var featured=CH.filter(function(c){return c.featured});
+var offerCards=n('div',{className:'promos'});
+featured.forEach(function(c){
+var off=c.products.find(function(p){return p.badge==='offer'&&p.old});
+if(!off)return;
+var oc=n('div',{className:'promo',style:{background:'linear-gradient(135deg,'+c.color+','+c.color+'cc)'},onclick:function(){S.company=c;S.page='company';render()}});
+var pct=Math.round((1-off.price/off.old)*100);
+oc.appendChild(n('div',{style:{display:'flex',justifyContent:'space-between',marginBottom:'8px'},innerHTML:'<span style="font-size:1.6rem">'+c.logo+'</span><span style="background:rgba(255,255,255,.2);padding:2px 8px;border-radius:6px;font-size:.6rem;font-weight:700">-'+pct+'%</span>'}));
+oc.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700'}},off.name[S.lang]));
+oc.appendChild(n('div',{style:{display:'flex',gap:'6px',alignItems:'center',marginTop:'4px'},innerHTML:'<b style="font-size:1rem">'+off.price.toFixed(3)+' '+t('kd')+'</b><s style="font-size:.7rem;opacity:.7">'+off.old.toFixed(3)+'</s>'}));
+offerCards.appendChild(oc)});
+pg.appendChild(offerCards);
+
+// Companies
+var sec3=n('div',{className:'sec'});sec3.appendChild(n('div',{className:'sec-t'},t('topCompanies')));pg.appendChild(sec3);
+var filtered=CH.filter(function(c){if(!S.search)return true;return c.name[S.lang].indexOf(S.search)!==-1||c.name[S.lang==='ar'?'en':'ar'].toLowerCase().indexOf(S.search.toLowerCase())!==-1});
+filtered.forEach(function(c){
+var card=n('div',{className:'card',onclick:function(){S.company=c;S.page='company';S.catFilter=null;render()}});
+card.appendChild(n('div',{className:'card-logo',style:{background:c.color+'12'}},c.logo));
+var info=n('div',{className:'card-info'});
+info.appendChild(n('div',{className:'card-name'},c.name[S.lang]));
+info.appendChild(n('div',{className:'card-meta'},'⭐ '+c.rating+' · 🕐 '+c.delivery+' · '+c.products.length+' '+t('products')));
+card.appendChild(info);
+card.appendChild(n('div',{className:'card-arrow'},'←'));
+pg.appendChild(card)});
+
+// Water tip
+var sec4=n('div',{className:'sec'});sec4.appendChild(n('div',{className:'sec-t'},'💡 '+t('waterTips')));pg.appendChild(sec4);
+var tip=TIPS[new Date().getDate()%TIPS.length];
+var tipEl=n('div',{className:'tip'});tipEl.appendChild(n('div',{className:'tip-ico'},tip.ico));
+var tipTxt=n('div',{});tipTxt.appendChild(n('div',{className:'tip-txt'},tip[S.lang]));tipTxt.appendChild(n('div',{className:'tip-lbl'},t('tipDay')));
+tipEl.appendChild(tipTxt);pg.appendChild(tipEl);
+
+// Delivery areas
+var sec5=n('div',{className:'sec'});sec5.appendChild(n('div',{className:'sec-t'},'🗺️ '+t('deliveryAreas')));pg.appendChild(sec5);
+var areas=n('div',{className:'areas'});
+AREAS.forEach(function(a){var ae=n('div',{className:'area'});ae.appendChild(n('div',{className:'area-name'},a[S.lang]));ae.appendChild(n('div',{className:'area-time'},'🕐 '+a.time+' min'));areas.appendChild(ae)});
+pg.appendChild(areas);
+
+// Stats bar
+var sb=n('div',{className:'stats-bar'});
+[['10',S.lang==='ar'?'شركات':'Companies'],['68+',S.lang==='ar'?'منتج':'Products'],['24/7',S.lang==='ar'?'توصيل':'Delivery'],['6',S.lang==='ar'?'محافظات':'Gov.']].forEach(function(s,i){
+if(i>0)sb.appendChild(n('div',{className:'stat-sep'}));
+var st=n('div',{});st.appendChild(n('div',{className:'stat-val'},s[0]));st.appendChild(n('div',{className:'stat-lbl'},s[1]));sb.appendChild(st)});
+pg.appendChild(sb);
+
+return pg}
+
+// ═══ COMPANY ═══
+function renderCompany(){
+var c=S.company;var pg=n('div',{className:'page on'});
+// Hero
+var hero=n('div',{className:'comp-hero',style:{background:'linear-gradient(135deg,'+c.color+','+c.color+'dd)'}});
+hero.appendChild(n('button',{className:'comp-back',onclick:function(){S.page='home';S.company=null;render()}},'← '+t('back')));
+var top=n('div',{className:'comp-hero-top'});
+top.appendChild(n('div',{className:'comp-hero-logo'},c.logo));
+var info=n('div',{});info.appendChild(n('div',{className:'comp-hero-name'},c.name[S.lang]));info.appendChild(n('div',{className:'comp-hero-desc'},c.desc[S.lang]));
+top.appendChild(info);hero.appendChild(top);
+var stats=n('div',{className:'comp-stats'});
+stats.innerHTML='⭐ '+c.rating+' ('+c.reviews.toLocaleString()+') · 🕐 '+c.delivery+' · '+t('minOrder')+': '+c.minOrder+' '+t('kd');
+hero.appendChild(stats);pg.appendChild(hero);
+
+// Info cards
+var scroll=n('div',{className:'info-scroll'});
+if(c.hours){var ic1=n('div',{className:'info-card'});ic1.innerHTML='<span class="info-card-ico">🕐</span><div><div class="info-card-lbl">'+(S.lang==='ar'?'ساعات العمل':'Hours')+'</div><div class="info-card-val">'+c.hours[S.lang]+'</div></div>';scroll.appendChild(ic1)}
+if(c.phone){var ic2=n('div',{className:'info-card'});ic2.innerHTML='<span class="info-card-ico">📞</span><div><div class="info-card-lbl">'+(S.lang==='ar'?'اتصل':'Contact')+'</div><div class="info-card-val">'+c.phone+'</div></div>';scroll.appendChild(ic2)}
+if(c.areas){var ic3=n('div',{className:'info-card'});ic3.innerHTML='<span class="info-card-ico">📍</span><div><div class="info-card-lbl">'+(S.lang==='ar'?'التغطية':'Coverage')+'</div><div class="info-card-val">'+c.areas[S.lang]+'</div></div>';scroll.appendChild(ic3)}
+pg.appendChild(scroll);
+
+// Certs
+if(c.certs){var certs=n('div',{className:'certs'});c.certs.forEach(function(cert){certs.appendChild(n('span',{className:'cert'},'✓ '+cert))});pg.appendChild(certs)}
+
+// Filter
+var cats=new Set();c.products.forEach(function(p){cats.add(p.cat)});
+var ftabs=n('div',{className:'ftabs'});
+ftabs.appendChild(n('button',{className:'ftab'+(S.catFilter===null?' on':''),onclick:function(){S.catFilter=null;render()}},t('viewAll')));
+CATS.filter(function(cat){return cats.has(cat.id)}).forEach(function(cat){
+ftabs.appendChild(n('button',{className:'ftab'+(S.catFilter===cat.id?' on':''),onclick:function(){S.catFilter=cat.id;render()}},cat.icon+' '+t(cat.id)))});
+pg.appendChild(ftabs);
+
+// Products
+var prods=S.catFilter?c.products.filter(function(p){return p.cat===S.catFilter}):c.products;
+prods.forEach(function(p){
+var el=n('div',{className:'prod'});
+el.appendChild(n('div',{className:'prod-img'},p.img));
+var info=n('div',{className:'prod-info'});
+var nameRow=n('div',{className:'prod-name'});nameRow.textContent=p.name[S.lang]+' ';
+if(p.badge){var bc=p.badge==='offer'?'badge-offer':p.badge==='new'?'badge-new':'badge-best';nameRow.appendChild(n('span',{className:'badge '+bc},p.badge==='offer'?t('offer'):p.badge==='new'?t('newBadge'):t('bestSeller')))}
+info.appendChild(nameRow);
+if(p.desc)info.appendChild(n('div',{className:'prod-desc'},p.desc[S.lang]));
+var pr=n('div',{className:'prod-price'});pr.appendChild(n('span',{className:'prod-now'},p.price.toFixed(3)+' '+t('kd')));
+if(p.old)pr.appendChild(n('span',{className:'prod-old'},p.old.toFixed(3)));
+info.appendChild(pr);el.appendChild(info);
+el.appendChild(n('button',{className:'prod-add',onclick:function(e){e.stopPropagation();addCart(p,c)}},'+'));
+pg.appendChild(el)});
+
+return pg}
+
+// ═══ CART ═══
+function renderCart(){
+var d=n('div',{className:'sheet'});
+var hdr=n('div',{className:'sheet-hdr'});
+hdr.appendChild(n('button',{className:'sheet-back',onclick:function(){S.showCart=false;render()}},'←'));
+hdr.appendChild(n('div',{className:'sheet-title'},t('cart')+' ('+cartCount()+')'));
+d.appendChild(hdr);
+
+if(S.cart.length===0){
+var em=n('div',{className:'empty'});em.appendChild(n('div',{className:'empty-ico'},'🛒'));em.appendChild(n('div',{className:'empty-txt'},t('emptyCart')));d.appendChild(em);return d}
+
+S.cart.forEach(function(item){
+var el=n('div',{className:'cart-item'});
+el.appendChild(n('div',{className:'cart-item-img'},item.p.img));
+var info=n('div',{className:'cart-item-info'});info.appendChild(n('div',{className:'cart-item-name'},item.p.name[S.lang]));info.appendChild(n('div',{className:'cart-item-company'},item.co.name[S.lang]));info.appendChild(n('div',{className:'cart-item-price'},item.p.price.toFixed(3)+' '+t('kd')));el.appendChild(info);
+var ctrl=n('div',{className:'qty-ctrl'});
+ctrl.appendChild(n('button',{className:'qty-btn qty-minus',onclick:function(){updQty(item.p.id,-1)}},'−'));
+ctrl.appendChild(n('span',{className:'qty-val'},String(item.qty)));
+ctrl.appendChild(n('button',{className:'qty-btn qty-plus',onclick:function(){updQty(item.p.id,1)}},'+'));
+el.appendChild(ctrl);
+el.appendChild(n('button',{className:'cart-rm',onclick:function(){rmCart(item.p.id)}},'✕'));
+d.appendChild(el)});
+
+// Promo
+var promoRow=n('div',{style:{display:'flex',gap:'8px',padding:'12px 16px'}});
+var pi=n('input',{style:{flex:'1',padding:'10px 14px',borderRadius:'10px',border:'1.5px solid #e5e7eb',fontSize:'.82rem',fontFamily:'inherit'},placeholder:t('promoCode')});
+pi.value=S.promo;pi.oninput=function(){S.promo=this.value};
+promoRow.appendChild(pi);
+promoRow.appendChild(n('button',{style:{padding:'10px 18px',borderRadius:'10px',background:'#3b82f6',color:'#fff',border:'none',fontSize:'.78rem',fontWeight:'700',cursor:'pointer',fontFamily:'inherit'},onclick:function(){if(S.promo.toUpperCase()==='MAI10'){S.promoOk=true;render()}}},t('apply')));
+d.appendChild(promoRow);
+if(S.promoOk)d.appendChild(n('div',{style:{padding:'0 16px',fontSize:'.72rem',color:'#059669'}},'✓ '+t('promoApplied')+' — MAI10 (10% '+t('off')+')'));
+
+// CTA
+var disc=S.promoOk?cartTotal()*0.1:0;var final_=cartTotal()-disc;
+var cta=n('div',{className:'cta'});
+var sub=n('div',{style:{display:'flex',justifyContent:'space-between',marginBottom:'8px',fontSize:'.85rem'}});sub.appendChild(n('span',{style:{color:'#6b7280'}},t('subtotal')));sub.appendChild(n('span',{style:{fontWeight:'700'}},cartTotal().toFixed(3)+' '+t('kd')));cta.appendChild(sub);
+cta.appendChild(n('button',{className:'cta-btn cta-sky',onclick:function(){S.showCheckout=true;render()}},t('checkout')+' — '+final_.toFixed(3)+' '+t('kd')));
+d.appendChild(cta);
+return d}
+
+// ═══ CHECKOUT ═══
+function renderCheckout(){
+var d=n('div',{className:'sheet'});
+var hdr=n('div',{className:'sheet-hdr'});hdr.appendChild(n('button',{className:'sheet-back',onclick:function(){S.showCheckout=false;render()}},'←'));hdr.appendChild(n('div',{className:'sheet-title'},t('checkout')));d.appendChild(hdr);
+
+// Address
+var addr=n('div',{className:'summary'});addr.innerHTML='<div style="font-size:.72rem;color:#6b7280;font-weight:700;margin-bottom:6px">📍 '+t('deliveryAddr')+'</div><div style="font-size:.88rem;font-weight:600">'+USER.addr[S.lang]+'</div>';d.appendChild(addr);
+
+// Payment
+d.appendChild(n('div',{style:{padding:'10px 16px 4px',fontSize:'.72rem',color:'#6b7280',fontWeight:'700'}},'💳 '+t('payMethod')));
+[['knet','🏧',t('knet')],['cc','💳',t('creditCard')],['apple','',t('applePay')],['cod','💵',t('cod')]].forEach(function(m){
+var opt=n('div',{className:'pay-opt'+(S.payMethod===m[0]?' on':''),onclick:function(){S.payMethod=m[0];render()}});
+opt.appendChild(n('span',{className:'pay-ico'},m[1]));opt.appendChild(n('span',{className:'pay-name'},m[2]));
+var radio=n('div',{className:'pay-radio'});if(S.payMethod===m[0])radio.appendChild(n('div',{className:'pay-dot'}));opt.appendChild(radio);
+d.appendChild(opt)});
+
+// Summary
+var disc=S.promoOk?cartTotal()*0.1:0;var final_=cartTotal()-disc;
+var sum=n('div',{className:'summary'});sum.innerHTML='<div style="font-size:.72rem;color:#6b7280;font-weight:700;margin-bottom:8px">📋 '+t('orderSummary')+'</div>';
+S.cart.forEach(function(i){sum.innerHTML+='<div class="sum-row"><span>'+i.p.name[S.lang]+' ×'+i.qty+'</span><span style="font-weight:600">'+(i.p.price*i.qty).toFixed(3)+' '+t('kd')+'</span></div>'});
+sum.innerHTML+='<div class="sum-row"><span>'+t('delivery')+'</span><span class="sum-free">'+t('free')+' ✓</span></div>';
+if(S.promoOk)sum.innerHTML+='<div class="sum-row sum-disc"><span>'+t('promoApplied')+' (10%)</span><span>-'+disc.toFixed(3)+' '+t('kd')+'</span></div>';
+sum.innerHTML+='<div class="sum-row sum-total"><span>'+t('total')+'</span><span>'+final_.toFixed(3)+' '+t('kd')+'</span></div>';
+d.appendChild(sum);
+
+// Points
+d.appendChild(n('div',{style:{margin:'0 16px 12px',background:'#fef3c7',borderRadius:'12px',padding:'12px',textAlign:'center',fontSize:'.82rem',color:'#92400e'}},'⭐ '+t('earnPts')+' +'+Math.floor(final_*10)+' '+t('points')));
+
+// CTA
+var cta=n('div',{className:'cta'});cta.appendChild(n('button',{className:'cta-btn cta-green',onclick:function(){S.orderPlaced=true;render()}},t('placeOrder')+' — '+final_.toFixed(3)+' '+t('kd')));d.appendChild(cta);
+return d}
+
+// ═══ SUCCESS ═══
+function renderSuccess(){
+var d=n('div',{className:'success'});
+d.appendChild(n('div',{className:'success-ico'},'✅'));
+d.appendChild(n('div',{className:'success-t'},t('orderPlaced')));
+d.appendChild(n('div',{className:'success-s'},t('orderTrack')));
+var card=n('div',{style:{background:'#fff',borderRadius:'16px',padding:'20px',width:'100%',boxShadow:'0 2px 12px rgba(0,0,0,.06)',marginTop:'20px',textAlign:S.lang==='ar'?'right':'left'}});
+card.innerHTML='<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="color:#9ca3af;font-size:.82rem">Order ID</span><span style="font-weight:700;font-family:monospace">ORD-'+Math.floor(Math.random()*9000+1000)+'</span></div>';
+var disc=S.promoOk?cartTotal()*0.1:0;
+card.innerHTML+='<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="color:#9ca3af;font-size:.82rem">'+t('total')+'</span><span style="font-weight:800;color:#059669">'+(cartTotal()-disc).toFixed(3)+' '+t('kd')+'</span></div>';
+card.innerHTML+='<div style="display:flex;justify-content:space-between"><span style="color:#9ca3af;font-size:.82rem">'+t('points')+'</span><span style="font-weight:700;color:#f59e0b">+'+Math.floor((cartTotal()-disc)*10)+' ⭐</span></div>';
+d.appendChild(card);
+d.appendChild(n('button',{style:{marginTop:'20px',padding:'14px 40px',borderRadius:'12px',background:'#059669',color:'#fff',border:'none',fontSize:'.95rem',fontWeight:'700',cursor:'pointer',fontFamily:'inherit'},onclick:function(){S.orderPlaced=false;S.showCheckout=false;S.showCart=false;S.cart=[];S.promoOk=false;S.promo='';S.tab='home';S.page='home';render()}},t('home')));
+return d}
+
+// ═══ COMPANIES PAGE ═══
+function renderCompaniesPage(){
+var pg=n('div',{className:'page on'});pg.appendChild(n('div',{style:{padding:'20px 16px 10px',fontSize:'1.3rem',fontWeight:'900'}},t('allCompanies')));
+var grid=n('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px',padding:'0 16px'}});
+CH.forEach(function(c){
+var card=n('div',{style:{background:'#fff',borderRadius:'16px',padding:'16px',boxShadow:'0 2px 8px rgba(0,0,0,.04)',cursor:'pointer',textAlign:'center',border:'1px solid #f1f5f9'},onclick:function(){S.company=c;S.page='company';S.catFilter=null;render()}});
+card.innerHTML='<div style="font-size:2.2rem;margin-bottom:6px">'+c.logo+'</div><div style="font-size:.88rem;font-weight:700">'+c.name[S.lang]+'</div><div style="font-size:.65rem;color:#9ca3af;margin-top:2px">⭐ '+c.rating+' · '+c.products.length+' '+t('products')+'</div>';
+grid.appendChild(card)});
+pg.appendChild(grid);return pg}
+
+// ═══ ORDERS ═══
+function renderOrders(){
+var pg=n('div',{className:'page on'});pg.appendChild(n('div',{style:{padding:'20px 16px 10px',fontSize:'1.3rem',fontWeight:'900'}},t('orders')));
+ORDERS.forEach(function(o){
+var el=n('div',{className:'order'});
+var top=n('div',{className:'order-top'});top.appendChild(n('span',{className:'order-id'},o.id));
+var sc=o.status==='delivered'?'#ecfdf5':'#fefce8';var stc=o.status==='delivered'?'#059669':'#f59e0b';
+top.appendChild(n('span',{className:'order-status',style:{background:sc,color:stc}},t(o.status)));
+el.appendChild(top);el.appendChild(n('div',{className:'order-company'},o.co));
+el.appendChild(n('div',{className:'order-meta'},o.items+' '+t('items')+' · '+o.total.toFixed(3)+' '+t('kd')));
+if(o.status!=='delivered'){var pb=n('div',{className:'order-progress'});pb.appendChild(n('div',{className:'order-bar',style:{width:o.progress+'%'}}));el.appendChild(pb)}
+pg.appendChild(el)});return pg}
+
+// ═══ PROFILE ═══
+function renderProfile(){
+var pg=n('div',{className:'page on'});
+// Card
+var card=n('div',{className:'prof-card'});
+card.appendChild(n('div',{className:'prof-avatar'},'👤'));
+card.appendChild(n('div',{className:'prof-name'},USER.name[S.lang]));
+card.appendChild(n('div',{className:'prof-level',style:{background:'rgba(148,163,184,.2)',border:'1px solid rgba(148,163,184,.4)',color:'#94a3b8'}},'👑 '+t('silverMember')));
+var stats=n('div',{className:'prof-stats'});
+[['⭐ '+USER.pts.toLocaleString(),t('points')],['📦 '+USER.orders,t('orders_count')],['💰 '+USER.saved.toFixed(1),t('saved')]].forEach(function(s){
+var st=n('div',{className:'prof-stat'});st.appendChild(n('div',{className:'prof-stat-val'},s[0]));st.appendChild(n('div',{className:'prof-stat-lbl'},s[1]));stats.appendChild(st)});
+card.appendChild(stats);pg.appendChild(card);
+
+// Points bar
+var pts=n('div',{className:'prof-pts'});
+pts.innerHTML='<div style="display:flex;justify-content:space-between"><span style="font-size:.82rem;font-weight:700">'+t('points')+'</span><span style="font-size:.72rem;color:#f59e0b;font-weight:700">⭐ '+USER.pts+' / 5,000</span></div>';
+pts.innerHTML+='<div class="pts-bar-bg"><div class="pts-bar" style="width:'+(USER.pts/5000*100)+'%"></div></div>';
+pg.appendChild(pts);
+
+// Referral
+var ref=n('div',{className:'refer'});
+ref.innerHTML='<div style="display:flex;align-items:center;gap:10px"><span style="font-size:1.6rem">🎁</span><div><div style="font-size:.88rem;font-weight:700;color:#92400e">'+t('inviteFriends')+'</div><div style="font-size:.68rem;color:#a16207;margin-top:2px">'+t('earnRefer')+'</div></div></div>';
+ref.innerHTML+='<div class="refer-code"><span class="refer-code-txt">ALI2026</span><button class="refer-copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(\'ALI2026\')">'+t('copyCode')+'</button></div>';
+pg.appendChild(ref);
+
+// Menu
+[['📝',t('editProfile')],['📍',t('myAddresses')],['🔔',t('notifications'),'2'],['❓',t('helpCenter')],['🌐',t('langSwitch'),null,function(){S.lang=S.lang==='ar'?'en':'ar';render()}],['🚪',t('logout')]].forEach(function(m){
+var mi=n('div',{className:'menu-item',onclick:m[3]||null});mi.appendChild(n('span',{className:'menu-ico'},m[0]));mi.appendChild(n('span',{className:'menu-lbl'},m[1]));
+if(m[2])mi.appendChild(n('span',{className:'notif-badge'},m[2]));
+else if(m[3]||!m[3])mi.appendChild(n('span',{className:'menu-arr'},'←'));
+pg.appendChild(mi)});
+
+pg.appendChild(n('div',{style:{textAlign:'center',padding:'16px',fontSize:'.62rem',color:'#9ca3af'}},'MAI v1.0 — Ali AlEnezi · @SiteQ8'));
+return pg}
+
+// ═══ FLOAT CART ═══
+function renderFloatCart(root){
+if(cartCount()===0||S.tab==='profile')return;
+var fc=n('div',{className:'float-cart',onclick:function(){S.showCart=true;render()}});
+fc.appendChild(n('span',{className:'float-cart-count'},'🛒 '+cartCount()+' '+t('items')));
+fc.appendChild(n('span',{className:'float-cart-total'},cartTotal().toFixed(3)+' '+t('kd')));
+root.appendChild(fc)}
+
+// ═══ NAV ═══
+function renderNav(root){
+var nav=n('div',{className:'bnav'});
+[['home','🏠',t('home')],['companies','🏢',t('companies')],['orders','📦',t('orders')],['profile','👤',t('profile')]].forEach(function(tab){
+var ni=n('div',{className:'bnav-i'+(S.tab===tab[0]?' on':''),onclick:function(){S.tab=tab[0];S.page='home';S.company=null;render()}});
+ni.appendChild(n('div',{className:'ico'},tab[1]));ni.appendChild(n('div',{className:'lbl'},tab[2]));nav.appendChild(ni)});
+root.appendChild(nav)}
+
+// ═══ INIT ═══
+render();
+
+</script>
+</body>
+</html>
