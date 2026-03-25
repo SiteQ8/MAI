@@ -1,0 +1,23 @@
+{
+  "name": "mai-water-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "MAI — Kuwait Water Delivery App",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --outDir docs --emptyOutDir",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "vite": "^6.3.5"
+  },
+  "author": "Ali AlEnezi (@SiteQ8)",
+  "license": "MIT",
+  "homepage": "https://siteq8.github.io/MAI"
+}
