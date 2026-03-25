@@ -252,6 +252,42 @@ const PROMO_BANNERS = [
 
 const USER = { name: { ar: 'علي العنزي', en: 'Ali AlEnezi' }, phone: '+965 9xxx xxxx', email: 'ali@example.com', points: 2450, level: 2, totalOrders: 47, saved: 28.750, address: { ar: 'السالمية، قطعة ١٢، شارع عمان', en: 'Salmiya, Block 12, Oman Street' } };
 
+// ═══ SVG LOGO COMPONENT ═══
+function MaiLogo({ size = 120 }) {
+  return (
+    <svg viewBox="0 0 120 120" width={size} height={size} style={{ filter: 'drop-shadow(0 8px 24px rgba(3,105,161,.25))' }}>
+      <defs>
+        <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#38bdf8" />
+          <stop offset="50%" stopColor="#0ea5e9" />
+          <stop offset="100%" stopColor="#0369a1" />
+        </linearGradient>
+        <linearGradient id="dropGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fff" stopOpacity=".95" />
+          <stop offset="100%" stopColor="#e0f2fe" stopOpacity=".85" />
+        </linearGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="2" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+      </defs>
+      <circle cx="60" cy="60" r="56" fill="url(#logoGrad)" />
+      <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.12)" strokeWidth="1" />
+      <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,.06)" strokeWidth="1" />
+      {/* Water drop */}
+      <path d="M60 22C60 22 36 50 36 66C36 80 47 90 60 90C73 90 84 80 84 66C84 50 60 22 60 22Z" fill="url(#dropGrad)" opacity=".92" />
+      {/* Waves inside drop */}
+      <path d="M42 68C47 63 53 70 60 66C67 62 73 68 78 64" fill="none" stroke="#0ea5e9" strokeWidth="2.2" strokeLinecap="round" opacity=".45" filter="url(#glow)" />
+      <path d="M44 74C48 70 54 76 60 72C66 68 72 74 76 70" fill="none" stroke="#0ea5e9" strokeWidth="1.5" strokeLinecap="round" opacity=".25" />
+      {/* MAI text */}
+      <text x="60" y="63" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="22" fontWeight="900" fill="#0369a1" letterSpacing="-1">MAI</text>
+      {/* Arabic ماي */}
+      <text x="60" y="82" textAnchor="middle" fontFamily="Tajawal,sans-serif" fontSize="15" fontWeight="700" fill="#0284c7" opacity=".65">ماي</text>
+      {/* Sparkle dots */}
+      <circle cx="72" cy="38" r="2" fill="#fff" opacity=".7" />
+      <circle cx="78" cy="44" r="1.2" fill="#fff" opacity=".5" />
+      <circle cx="68" cy="32" r="1" fill="#fff" opacity=".4" />
+    </svg>
+  );
+}
+
 export default function MAI() {
   const [lang, setLang] = useState('ar');
   const [page, setPage] = useState('home');
@@ -266,6 +302,11 @@ export default function MAI() {
   const [promoApplied, setPromoApplied] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCat, setSelectedCat] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loginPhone, setLoginPhone] = useState('');
+  const [loginPass, setLoginPass] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const [loginLoading, setLoginLoading] = useState(false);
 
   const t = T[lang];
   const isRtl = lang === 'ar';
@@ -296,6 +337,148 @@ export default function MAI() {
   const levelColor = USER.level >= 3 ? '#f59e0b' : USER.level >= 2 ? '#94a3b8' : '#cd7f32';
 
   const containerStyle = { maxWidth: 430, margin: '0 auto', minHeight: '100vh', background: '#f8fafc', fontFamily: "'Segoe UI', Tahoma, sans-serif", direction: isRtl ? 'rtl' : 'ltr', position: 'relative', overflow: 'hidden' };
+
+  const doLogin = () => {
+    const ph = loginPhone.replace(/\s/g, '');
+    if (!ph || !loginPass) { setLoginError(isRtl ? 'يرجى إدخال رقم الهاتف وكلمة المرور' : 'Please enter phone and password'); return; }
+    if ((ph === '+96599999999' && loginPass === 'mai2026') || (ph === 'demo' && loginPass === 'demo')) {
+      setLoginLoading(true); setLoginError('');
+      setTimeout(() => { setLoggedIn(true); setLoginLoading(false); }, 800);
+      return;
+    }
+    setLoginError(isRtl ? 'رقم الهاتف أو كلمة المرور غير صحيحة' : 'Invalid phone number or password');
+  };
+
+  const doLogout = () => { setLoggedIn(false); setCart([]); setTab('home'); setPage('home'); setLoginPhone(''); setLoginPass(''); setLoginError(''); };
+
+  // ═══ LOGIN SCREEN ═══
+  if (!loggedIn) return (
+    <div style={{ maxWidth: 430, margin: '0 auto', minHeight: '100vh', background: 'linear-gradient(165deg, #0c4a6e 0%, #0369a1 30%, #0ea5e9 55%, #38bdf8 100%)', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '30px 24px' }}>
+      {/* Decorative circles */}
+      <div style={{ position: 'absolute', top: -100, right: -80, width: 320, height: 320, borderRadius: '50%', background: 'rgba(255,255,255,.03)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: -60, left: -60, width: 240, height: 240, borderRadius: '50%', background: 'rgba(255,255,255,.02)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 60, left: 30, width: 6, height: 6, borderRadius: '50%', background: 'rgba(255,255,255,.15)' }} />
+      <div style={{ position: 'absolute', top: 120, right: 50, width: 4, height: 4, borderRadius: '50%', background: 'rgba(255,255,255,.1)' }} />
+      <div style={{ position: 'absolute', bottom: 200, left: 60, width: 5, height: 5, borderRadius: '50%', background: 'rgba(255,255,255,.12)' }} />
+
+      {/* Language toggle */}
+      <button onClick={toggleLang} style={{ position: 'absolute', top: 16, [isRtl ? 'left' : 'right']: 16, background: 'rgba(255,255,255,.12)', border: 'none', borderRadius: 8, padding: '6px 14px', color: 'rgba(255,255,255,.75)', fontSize: '.72rem', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600, backdropFilter: 'blur(4px)', zIndex: 5 }}>
+        {isRtl ? 'English' : 'العربية'}
+      </button>
+
+      {/* Logo */}
+      <div style={{ marginBottom: 10, animation: 'fadeDown .7s ease both' }}>
+        <MaiLogo size={110} />
+      </div>
+
+      {/* App name */}
+      <div style={{ fontSize: '2.6rem', fontWeight: 900, color: '#fff', letterSpacing: -1, animation: 'fadeDown .7s ease .1s both', fontFamily: "'Inter', sans-serif" }}>MAI</div>
+      <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'rgba(255,255,255,.6)', marginBottom: 4, animation: 'fadeDown .7s ease .15s both', fontFamily: "'Tajawal', sans-serif" }}>ماي</div>
+      <div style={{ fontSize: '.78rem', color: 'rgba(255,255,255,.45)', marginBottom: 28, textAlign: 'center', animation: 'fadeDown .7s ease .2s both' }}>
+        {isRtl ? 'تطبيق توصيل المياه في الكويت 🇰🇼' : 'Kuwait Water Delivery App 🇰🇼'}
+      </div>
+
+      {/* Login card */}
+      <div style={{ width: '100%', background: 'rgba(255,255,255,.1)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 24, padding: '28px 22px', border: '1px solid rgba(255,255,255,.15)', boxShadow: '0 20px 60px rgba(0,0,0,.15)', animation: 'fadeUp .6s ease .3s both' }}>
+        <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginBottom: 18, textAlign: 'center' }}>
+          {isRtl ? 'تسجيل الدخول' : 'Sign In'}
+        </div>
+
+        {/* Phone */}
+        <div style={{ marginBottom: 14 }}>
+          <label style={{ fontSize: '.7rem', color: 'rgba(255,255,255,.55)', marginBottom: 5, display: 'block', fontWeight: 600 }}>
+            {isRtl ? 'رقم الهاتف' : 'Phone Number'}
+          </label>
+          <input value={loginPhone} onChange={e => { setLoginPhone(e.target.value); setLoginError(''); }}
+            onKeyDown={e => e.key === 'Enter' && doLogin()}
+            type="tel" dir="ltr" placeholder="+965 9999 9999"
+            style={{ width: '100%', padding: '13px 16px', borderRadius: 12, border: '1.5px solid rgba(255,255,255,.15)', background: 'rgba(255,255,255,.08)', color: '#fff', fontSize: '.88rem', outline: 'none', fontFamily: "'Inter', monospace", transition: 'border-color .2s' }} />
+        </div>
+
+        {/* Password */}
+        <div style={{ marginBottom: 14 }}>
+          <label style={{ fontSize: '.7rem', color: 'rgba(255,255,255,.55)', marginBottom: 5, display: 'block', fontWeight: 600 }}>
+            {isRtl ? 'كلمة المرور' : 'Password'}
+          </label>
+          <input value={loginPass} onChange={e => { setLoginPass(e.target.value); setLoginError(''); }}
+            onKeyDown={e => e.key === 'Enter' && doLogin()}
+            type="password" placeholder="••••••••"
+            style={{ width: '100%', padding: '13px 16px', borderRadius: 12, border: '1.5px solid rgba(255,255,255,.15)', background: 'rgba(255,255,255,.08)', color: '#fff', fontSize: '.88rem', outline: 'none', fontFamily: 'inherit', transition: 'border-color .2s' }} />
+        </div>
+
+        {/* Remember + Forgot */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '.72rem', color: 'rgba(255,255,255,.45)', cursor: 'pointer' }}>
+            <input type="checkbox" defaultChecked style={{ accentColor: '#fff' }} />
+            {isRtl ? 'تذكرني' : 'Remember me'}
+          </label>
+          <a href="#" onClick={e => e.preventDefault()} style={{ fontSize: '.72rem', color: 'rgba(255,255,255,.45)', textDecoration: 'none' }}>
+            {isRtl ? 'نسيت كلمة المرور؟' : 'Forgot password?'}
+          </a>
+        </div>
+
+        {/* Error */}
+        {loginError && <div style={{ color: '#fca5a5', fontSize: '.72rem', textAlign: 'center', marginBottom: 8, padding: '6px 10px', background: 'rgba(239,68,68,.1)', borderRadius: 8 }}>⚠️ {loginError}</div>}
+
+        {/* Login button */}
+        <button onClick={doLogin} disabled={loginLoading}
+          style={{ width: '100%', padding: 15, borderRadius: 14, border: 'none', background: loginLoading ? 'rgba(255,255,255,.6)' : '#fff', color: '#0284c7', fontSize: '1rem', fontWeight: 800, cursor: loginLoading ? 'wait' : 'pointer', fontFamily: 'inherit', boxShadow: '0 4px 16px rgba(0,0,0,.1)', transition: 'transform .1s' }}>
+          {loginLoading ? (isRtl ? 'جاري الدخول...' : 'Signing in...') : (isRtl ? 'دخول' : 'Sign In')}
+        </button>
+
+        {/* Divider */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '18px 0', color: 'rgba(255,255,255,.25)', fontSize: '.65rem' }}>
+          <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,.1)' }} />
+          {isRtl ? 'أو' : 'or'}
+          <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,.1)' }} />
+        </div>
+
+        {/* Social login */}
+        <div style={{ display: 'flex', gap: 10 }}>
+          <button onClick={() => { setLoginLoading(true); setTimeout(() => { setLoggedIn(true); setLoginLoading(false); }, 600); }}
+            style={{ flex: 1, padding: 12, borderRadius: 12, border: '1px solid rgba(255,255,255,.12)', background: 'rgba(255,255,255,.05)', color: '#fff', fontSize: '.78rem', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+             Apple
+          </button>
+          <button onClick={() => { setLoginLoading(true); setTimeout(() => { setLoggedIn(true); setLoginLoading(false); }, 600); }}
+            style={{ flex: 1, padding: 12, borderRadius: 12, border: '1px solid rgba(255,255,255,.12)', background: 'rgba(255,255,255,.05)', color: '#fff', fontSize: '.78rem', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+            📱 {isRtl ? 'رمز SMS' : 'SMS Code'}
+          </button>
+        </div>
+      </div>
+
+      {/* Demo credentials */}
+      <div style={{ marginTop: 18, width: '100%', textAlign: 'center', animation: 'fadeUp .5s ease .5s both' }}>
+        <div style={{ fontSize: '.6rem', color: 'rgba(255,255,255,.3)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 8, fontWeight: 700 }}>
+          {isRtl ? 'بيانات تجريبية للدخول' : 'Demo Login Credentials'}
+        </div>
+        <div style={{ background: 'rgba(255,255,255,.06)', borderRadius: 14, padding: '14px 18px', border: '1px dashed rgba(255,255,255,.12)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '.75rem' }}>
+            <span style={{ color: 'rgba(255,255,255,.4)' }}>{isRtl ? 'الهاتف' : 'Phone'}</span>
+            <b style={{ color: 'rgba(255,255,255,.85)', fontFamily: "'Inter', monospace", direction: 'ltr' }}>+965 9999 9999</b>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '.75rem' }}>
+            <span style={{ color: 'rgba(255,255,255,.4)' }}>{isRtl ? 'كلمة المرور' : 'Password'}</span>
+            <b style={{ color: 'rgba(255,255,255,.85)', fontFamily: "'Inter', monospace" }}>mai2026</b>
+          </div>
+          <div style={{ borderTop: '1px dashed rgba(255,255,255,.08)', marginTop: 4, paddingTop: 6, display: 'flex', justifyContent: 'space-between', fontSize: '.72rem' }}>
+            <span style={{ color: 'rgba(255,255,255,.3)' }}>{isRtl ? 'دخول سريع' : 'Quick login'}</span>
+            <b style={{ color: 'rgba(255,255,255,.7)', fontFamily: "'Inter', monospace" }}>demo / demo</b>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div style={{ marginTop: 20, fontSize: '.58rem', color: 'rgba(255,255,255,.22)', textAlign: 'center' }}>
+        MAI v1.0 — <a href="https://github.com/SiteQ8" style={{ color: 'rgba(255,255,255,.35)', textDecoration: 'none' }}>@SiteQ8</a> · Ali AlEnezi
+      </div>
+
+      {/* CSS animations */}
+      <style>{`
+        @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+      `}</style>
+    </div>
+  );
 
   // ═══ ORDER PLACED SCREEN ═══
   if (orderPlaced) return (
@@ -692,7 +875,7 @@ export default function MAI() {
           <div style={{ padding: 16 }}>
             {/* Profile header */}
             <div style={{ background: 'linear-gradient(135deg, #1e293b, #334155)', borderRadius: 20, padding: 24, color: '#fff', marginBottom: 16, textAlign: 'center' }}>
-              <div style={{ width: 70, height: 70, borderRadius: '50%', background: 'linear-gradient(135deg, #0ea5e9, #3b82f6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, margin: '0 auto 10px', boxShadow: '0 4px 16px rgba(14,165,233,.4)' }}>👤</div>
+              <div style={{ margin: '0 auto 10px' }}><MaiLogo size={70} /></div>
               <h2 style={{ fontSize: 20, fontWeight: 900 }}>{USER.name[lang]}</h2>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: `${levelColor}25`, border: `1px solid ${levelColor}50`, padding: '3px 12px', borderRadius: 20, fontSize: 11, fontWeight: 700, color: levelColor, marginTop: 6 }}>👑 {levelName}</div>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 16 }}>
@@ -755,7 +938,7 @@ export default function MAI() {
               ['🔔', t.notifications, null],
               ['❓', t.helpCenter, null],
               ['🌐', t.language, toggleLang],
-              ['🚪', t.logout, null],
+              ['🚪', t.logout, doLogout],
             ].map(([icon, label, action], i) => (
               <div key={i} onClick={action} style={{ background: '#fff', borderRadius: 12, padding: '14px 16px', marginBottom: 6, boxShadow: '0 1px 4px rgba(0,0,0,.03)', display: 'flex', alignItems: 'center', gap: 10, cursor: action ? 'pointer' : 'default' }}>
                 <span style={{ fontSize: 18 }}>{icon}</span>
