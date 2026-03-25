@@ -72,7 +72,7 @@ const T = {
 
 // ═══ DEMO DATA ═══
 const COMPANIES = [
-  { id: 1, name: { ar: 'مياه أبراج', en: 'Abraaj Water' }, logo: '💧', rating: 4.8, reviews: 3200, delivery: '25 min', minOrder: 2, color: '#0ea5e9', featured: true,
+  { id: 1, name: { ar: 'مياه أبراج', en: 'Abraaj Water' }, logo: '💧', rating: 4.8, reviews: 3200, delivery: {ar:'٢٥ دقيقة',en:'25 min'}, minOrder: 2, color: '#0ea5e9', featured: true,
     desc: { ar: 'شركة أبراج للمياه — تأسست عام ٢٠٠٢، حاصلة على شهادات ISO 22000 و HACCP و NSF الأمريكية. مياه نقية معالجة بأحدث تقنيات التعبئة', en: 'Abraaj Water — Est. 2002. ISO 22000, HACCP & NSF certified. Pure water with latest bottling technology' },
     hours: { ar: '٢٤ ساعة', en: '24 Hours' }, phone: '1888030', whatsapp: '+96599001111',
     address: { ar: 'الشويخ الصناعية', en: 'Shuwaikh Industrial' },
@@ -89,7 +89,7 @@ const COMPANIES = [
       { id: 108, name: { ar: 'اشتراك شهري — ١٠ قوارير', en: 'Monthly — 10 Gallons' }, price: 6.500, img: '📅', cat: 'subscription', badge: 'bestSeller', desc: { ar: 'توصيل أسبوعي تلقائي', en: 'Auto weekly delivery' } },
       { id: 109, name: { ar: 'أبراج سبورت ٧٥٠ مل (كرتون ٢٤)', en: 'Abraaj Sport 750ml (×24)' }, price: 2.100, img: '💧', cat: 'bottled', badge: 'new', desc: { ar: 'غطاء رياضي — للنوادي واللياقة', en: 'Sport cap — for gyms & fitness' } },
     ]},
-  { id: 2, name: { ar: 'الروضتين', en: 'Al Rawdatain' }, logo: '🏔️', rating: 4.9, reviews: 4100, delivery: '20 min', minOrder: 1.5, color: '#0284c7', featured: true,
+  { id: 2, name: { ar: 'الروضتين', en: 'Al Rawdatain' }, logo: '🏔️', rating: 4.9, reviews: 4100, delivery: {ar:'٢٠ دقيقة',en:'20 min'}, minOrder: 1.5, color: '#0284c7', featured: true,
     desc: { ar: 'الشركة الرائدة في تعبئة المياه في الكويت. مياه الروضتين الطبيعية من أنقى مصادر المياه الجوفية الكويتية', en: 'Kuwait\'s leading water bottling company. Natural underground water from Kuwait\'s purest sources' },
     hours: { ar: '٧ ص - ١٠ م', en: '7AM - 10PM' }, phone: '1828282',
     address: { ar: 'الصليبية', en: 'Sulaibiya' },
@@ -105,7 +105,7 @@ const COMPANIES = [
       { id: 207, name: { ar: 'اشتراك عائلي — ١٥ قارورة/شهر', en: 'Family Plan — 15 Gal/month' }, price: 10.500, img: '📅', cat: 'subscription', desc: { ar: 'مثالي للعائلات الكبيرة', en: 'Perfect for large families' } },
       { id: 208, name: { ar: 'الروضتين فوّار ٣٣٠ مل (٢٤)', en: 'Rawdatain Sparkling 330ml (×24)' }, price: 2.400, img: '✨', cat: 'bottled', badge: 'new', desc: { ar: 'مياه غازية طبيعية', en: 'Natural sparkling water' } },
     ]},
-  { id: 3, name: { ar: 'أكوا كول', en: 'Aqua Cool' }, logo: '🌊', rating: 4.7, reviews: 2500, delivery: '30 min', minOrder: 2, color: '#06b6d4', featured: true,
+  { id: 3, name: { ar: 'أكوا كول', en: 'Aqua Cool' }, logo: '🌊', rating: 4.7, reviews: 2500, delivery: {ar:'٣٠ دقيقة',en:'30 min'}, minOrder: 2, color: '#06b6d4', featured: true,
     desc: { ar: 'أكوا كول — توصيل مجاني لجميع مناطق الكويت. مياه معالجة بتقنية التناضح العكسي مع إضافة المعادن الطبيعية', en: 'Aqua Cool — Free delivery all Kuwait. RO-treated water with natural minerals added' },
     hours: { ar: '٦ ص - ١٢ م', en: '6AM - 12AM' }, phone: '1888030',
     address: { ar: 'الري الصناعية', en: 'Rai Industrial' },
@@ -120,7 +120,7 @@ const COMPANIES = [
       { id: 306, name: { ar: 'باقة ٨ قوارير', en: '8 Gallon Bundle' }, price: 4.200, oldPrice: 4.800, img: '🪣', cat: 'gallon', badge: 'offer' },
       { id: 307, name: { ar: 'برادة طاولة صغيرة', en: 'Countertop Mini Dispenser' }, price: 28.000, img: '🚰', cat: 'dispenser', desc: { ar: 'مثالية للمطبخ الصغير', en: 'Perfect for small kitchens' } },
     ]},
-  { id: 4, name: { ar: 'أكوا جلف', en: 'Aqua Gulf' }, logo: '🌅', rating: 4.6, reviews: 1800, delivery: '35 min', minOrder: 2, color: '#7c3aed', featured: true,
+  { id: 4, name: { ar: 'أكوا جلف', en: 'Aqua Gulf' }, logo: '🌅', rating: 4.6, reviews: 1800, delivery: {ar:'٣٥ دقيقة',en:'35 min'}, minOrder: 2, color: '#7c3aed', featured: true,
     desc: { ar: 'مياه معدنية وقلوية من أكوا جلف — تأسست في الإمارات وتخدم الكويت بأعلى المعايير', en: 'Mineral & alkaline water from Aqua Gulf — UAE-based, serving Kuwait with highest standards' },
     hours: { ar: '٨ ص - ١٠ م', en: '8AM - 10PM' }, phone: '50907710',
     address: { ar: 'الشويخ', en: 'Shuwaikh' },
@@ -132,7 +132,7 @@ const COMPANIES = [
       { id: 404, name: { ar: 'فلتر RO ٥ مراحل', en: '5-Stage RO Filter' }, price: 35.000, img: '🔧', cat: 'filter', desc: { ar: 'تركيب مجاني + صيانة سنوية', en: 'Free install + yearly maintenance' } },
       { id: 405, name: { ar: 'اشتراك شهري ٨ قوارير', en: 'Monthly — 8 Gallons' }, price: 5.000, img: '📅', cat: 'subscription' },
     ]},
-  { id: 5, name: { ar: 'مياه العين', en: 'Al Ain Water' }, logo: '⛰️', rating: 4.7, reviews: 2200, delivery: '25 min', minOrder: 1, color: '#059669',
+  { id: 5, name: { ar: 'مياه العين', en: 'Al Ain Water' }, logo: '⛰️', rating: 4.7, reviews: 2200, delivery: {ar:'٢٥ دقيقة',en:'25 min'}, minOrder: 1, color: '#059669',
     desc: { ar: 'مياه العين — من الإمارات إلى الكويت. مياه طبيعية غنية بالمعادن المتوازنة لترطيب مثالي للجسم', en: 'Al Ain Water — from UAE to Kuwait. Natural water rich in balanced minerals for optimal hydration' },
     hours: { ar: '٢٤ ساعة', en: '24 Hours' }, phone: '60984798',
     certs: ['ISO 22000', 'ESMA'],
@@ -143,7 +143,7 @@ const COMPANIES = [
       { id: 504, name: { ar: 'العين زيرو صوديوم (٢٤)', en: 'Al Ain Zero Sodium (×24)' }, price: 1.450, img: '💧', cat: 'bottled', badge: 'new', desc: { ar: 'صفر صوديوم لمرضى الضغط', en: 'Zero sodium for BP patients' } },
       { id: 505, name: { ar: 'قارورة ١٨.٩ لتر', en: '18.9L Gallon' }, price: 0.850, img: '🪣', cat: 'gallon' },
     ]},
-  { id: 6, name: { ar: 'كي دي كاو', en: 'KD Cow' }, logo: '🥛', rating: 4.5, reviews: 3800, delivery: '30 min', minOrder: 3, color: '#dc2626',
+  { id: 6, name: { ar: 'كي دي كاو', en: 'KD Cow' }, logo: '🥛', rating: 4.5, reviews: 3800, delivery: {ar:'٣٠ دقيقة',en:'30 min'}, minOrder: 3, color: '#dc2626',
     desc: { ar: 'كي دي كاو — تأسست ١٩٦٠. من أعرق شركات الألبان والمياه في الكويت. مياه نقية مع توصيل يومي', en: 'KD Cow — Est. 1960. Kuwait\'s oldest dairy & water company. Pure water with daily delivery' },
     hours: { ar: '٦ ص - ١١ م', en: '6AM - 11PM' }, phone: '1800180',
     address: { ar: 'الشويخ', en: 'Shuwaikh' },
@@ -154,7 +154,7 @@ const COMPANIES = [
       { id: 603, name: { ar: 'قارورة ١٨.٩ لتر', en: '18.9L Gallon' }, price: 0.550, img: '🪣', cat: 'gallon', badge: 'bestSeller', desc: { ar: 'أرخص قارورة — منذ ١٩٦٠', en: 'Cheapest gallon — since 1960' } },
       { id: 604, name: { ar: 'اشتراك يومي — قارورة/يوم', en: 'Daily Plan — 1 Gal/day' }, price: 15.000, img: '📅', cat: 'subscription', badge: 'new' },
     ]},
-  { id: 7, name: { ar: 'مياه ماسافي', en: 'Masafi Water' }, logo: '🗻', rating: 4.8, reviews: 5200, delivery: '25 min', minOrder: 2, color: '#1d4ed8',
+  { id: 7, name: { ar: 'مياه ماسافي', en: 'Masafi Water' }, logo: '🗻', rating: 4.8, reviews: 5200, delivery: {ar:'٢٥ دقيقة',en:'25 min'}, minOrder: 2, color: '#1d4ed8',
     desc: { ar: 'ماسافي — مياه معدنية طبيعية من ينابيع جبال الحجر في الإمارات. العلامة التجارية الأكثر ثقة في الخليج', en: 'Masafi — Natural mineral water from UAE\'s Hajar Mountains. The Gulf\'s most trusted brand' },
     hours: { ar: '٢٤ ساعة', en: '24 Hours' }, phone: '22450045',
     certs: ['ISO 22000', 'NSF', 'FDA Compliant'],
@@ -165,7 +165,7 @@ const COMPANIES = [
       { id: 704, name: { ar: 'ماسافي توتش (نكهات) ٥٠٠ مل', en: 'Masafi Touch (Flavored) 500ml' }, price: 0.250, img: '🍋', cat: 'bottled', badge: 'new', desc: { ar: 'ليمون، توت، فراولة', en: 'Lemon, Berry, Strawberry' } },
       { id: 705, name: { ar: 'قارورة ١٨.٩ لتر ماسافي', en: 'Masafi 18.9L Gallon' }, price: 0.900, img: '🪣', cat: 'gallon' },
     ]},
-  { id: 8, name: { ar: 'سوفت ووتر', en: 'Soft Water' }, logo: '🔧', rating: 4.6, reviews: 980, delivery: '2-3 days', minOrder: 15, color: '#8b5cf6',
+  { id: 8, name: { ar: 'سوفت ووتر', en: 'Soft Water' }, logo: '🔧', rating: 4.6, reviews: 980, delivery: {ar:'٢-٣ أيام',en:'2-3 days'}, minOrder: 15, color: '#8b5cf6',
     desc: { ar: 'سوفت ووتر — الوكيل الحصري لشركة إيكوسوفت البلجيكية في الكويت. متخصصون في أنظمة تنقية وفلترة المياه المنزلية والتجارية', en: 'Soft Water — Exclusive Ecosoft (Belgium) agent in Kuwait. Home & commercial water purification systems' },
     hours: { ar: '٩ ص - ٦ م', en: '9AM - 6PM' }, phone: '22273322',
     address: { ar: 'السالمية', en: 'Salmiya' },
@@ -178,7 +178,7 @@ const COMPANIES = [
       { id: 805, name: { ar: 'صيانة سنوية + فلاتر بديلة', en: 'Annual Maintenance + Filters' }, price: 25.000, img: '📅', cat: 'subscription', desc: { ar: 'تغيير فلاتر كل ٦ أشهر', en: 'Filter replacement every 6 months' } },
       { id: 806, name: { ar: 'حامل قوارير ستانلس ستيل', en: 'Stainless Steel Gallon Stand' }, price: 12.000, img: '🗄️', cat: 'accessories' },
     ]},
-  { id: 9, name: { ar: 'وتر سوق', en: 'Watersouq' }, logo: '🛒', rating: 4.5, reviews: 1500, delivery: '4 hours', minOrder: 5, color: '#ea580c',
+  { id: 9, name: { ar: 'وتر سوق', en: 'Watersouq' }, logo: '🛒', rating: 4.5, reviews: 1500, delivery: {ar:'٤ ساعات',en:'4 hours'}, minOrder: 5, color: '#ea580c',
     desc: { ar: 'وتر سوق — أكبر متجر إلكتروني لتوصيل المياه في الكويت. جميع الماركات العالمية في مكان واحد', en: 'Watersouq — Kuwait\'s largest online water store. All global brands in one place' },
     hours: { ar: '٢٤ ساعة أونلاين', en: '24/7 Online' }, phone: '22250025',
     certs: ['E-commerce License'],
@@ -189,7 +189,7 @@ const COMPANIES = [
       { id: 904, name: { ar: 'بادويه فوّار ٣٣٠ مل (٢٤)', en: 'Badoit Sparkling 330ml (×24)' }, price: 4.200, img: '✨', cat: 'bottled' },
       { id: 905, name: { ar: 'سان بيليغرينو ٥٠٠ مل (٢٤)', en: 'San Pellegrino 500ml (×24)' }, price: 4.000, img: '🇮🇹', cat: 'bottled', desc: { ar: 'مياه إيطالية فوّارة', en: 'Italian sparkling water' } },
     ]},
-  { id: 10, name: { ar: 'مياه ABC', en: 'ABC Water' }, logo: '🇰🇼', rating: 4.4, reviews: 750, delivery: '35 min', minOrder: 2, color: '#16a34a',
+  { id: 10, name: { ar: 'مياه ABC', en: 'ABC Water' }, logo: '🇰🇼', rating: 4.4, reviews: 750, delivery: {ar:'٣٥ دقيقة',en:'35 min'}, minOrder: 2, color: '#16a34a',
     desc: { ar: 'مياه ABC — منتج كويتي ١٠٠٪. أسعار اقتصادية مع جودة عالية ومعايير صارمة', en: 'ABC Water — 100% Kuwaiti product. Economic prices with high quality & strict standards' },
     hours: { ar: '٧ ص - ٩ م', en: '7AM - 9PM' }, phone: '24742666',
     certs: ['Kuwait Quality Mark', 'GCC Standards'],
@@ -212,8 +212,8 @@ const CATEGORIES = [
 
 const DEMO_ORDERS = [
   { id: 'ORD-2847', company: 'مياه نوفا', items: 3, total: 4.750, status: 'onTheWay', date: '2026-03-24', progress: 75 },
-  { id: 'ORD-2831', company: 'أكوا كويت', items: 1, total: 12.000, status: 'delivered', date: '2026-03-22', progress: 100 },
-  { id: 'ORD-2815', company: 'مياه الصفا', items: 5, total: 8.250, status: 'delivered', date: '2026-03-18', progress: 100 },
+  { id: 'ORD-2831', company: {ar:'الروضتين',en:'Al Rawdatain'}, items: 1, total: 12.000, status: 'delivered', date: '2026-03-22', progress: 100 },
+  { id: 'ORD-2815', company: {ar:'أكوا كول',en:'Aqua Cool'}, items: 5, total: 8.250, status: 'delivered', date: '2026-03-18', progress: 100 },
 ];
 
 
@@ -238,10 +238,10 @@ const DELIVERY_AREAS = [
 ];
 
 const NOTIFICATIONS = [
-  { id: 1, type: 'order', title: { ar: 'طلبك في الطريق!', en: 'Your order is on the way!' }, body: { ar: 'السائق أحمد على بعد ١٠ دقائق', en: 'Driver Ahmad is 10 minutes away' }, time: '5 min', read: false },
-  { id: 2, type: 'offer', title: { ar: 'عرض خاص — خصم ٢٠٪', en: 'Special offer — 20% OFF' }, body: { ar: 'على جميع القوارير من مياه نوفا', en: 'On all gallons from Nova Water' }, time: '1h', read: false },
-  { id: 3, type: 'points', title: { ar: 'ربحت ٥٠ نقطة!', en: 'You earned 50 points!' }, body: { ar: 'شكراً لطلبك الأخير — رصيدك ٢,٤٥٠ نقطة', en: 'Thanks for your last order — balance: 2,450 points' }, time: '2h', read: true },
-  { id: 4, type: 'info', title: { ar: 'مياه الصفا — منتج جديد', en: 'Al Safa — New product' }, body: { ar: 'جرّب مياهنا القلوية الجديدة pH 9.5', en: 'Try our new alkaline water pH 9.5' }, time: '1d', read: true },
+  { id: 1, type: 'order', title: { ar: 'طلبك في الطريق!', en: 'Your order is on the way!' }, body: { ar: 'السائق أحمد على بعد ١٠ دقائق', en: 'Driver Ahmad is 10 minutes away' }, time: {ar:'\u0665 د',en:'5m'}, read: false },
+  { id: 2, type: 'offer', title: { ar: 'عرض خاص — خصم ٢٠٪', en: 'Special offer — 20% OFF' }, body: { ar: 'على جميع القوارير من مياه نوفا', en: 'On all gallons from Nova Water' }, time: {ar:'\u0661 س',en:'1h'}, read: false },
+  { id: 3, type: 'points', title: { ar: 'ربحت ٥٠ نقطة!', en: 'You earned 50 points!' }, body: { ar: 'شكراً لطلبك الأخير — رصيدك ٢,٤٥٠ نقطة', en: 'Thanks for your last order — balance: 2,450 points' }, time: {ar:'\u0662 س',en:'2h'}, read: true },
+  { id: 4, type: 'info', title: { ar: 'مياه الصفا — منتج جديد', en: 'Al Safa — New product' }, body: { ar: 'جرّب مياهنا القلوية الجديدة pH 9.5', en: 'Try our new alkaline water pH 9.5' }, time: {ar:'\u0661 يوم',en:'1d'}, read: true },
 ];
 
 const PROMO_BANNERS = [
@@ -311,6 +311,10 @@ export default function MAI() {
   const t = T[lang];
   const isRtl = lang === 'ar';
 
+  const toAr = (n) => isRtl ? String(n).replace(/[0-9]/g, d => '٠١٢٣٤٥٦٧٨٩'[d]) : String(n);
+  const toArPrice = (n) => isRtl ? n.toFixed(3).replace(/[0-9]/g, d => '٠١٢٣٤٥٦٧٨٩'[d]) : n.toFixed(3);
+
+
   const toggleLang = () => setLang(lang === 'ar' ? 'en' : 'ar');
 
   const addToCart = useCallback((product, company) => {
@@ -336,7 +340,7 @@ export default function MAI() {
   const levelName = USER.level >= 3 ? t.goldMember : USER.level >= 2 ? t.silverMember : t.bronzeMember;
   const levelColor = USER.level >= 3 ? '#f59e0b' : USER.level >= 2 ? '#94a3b8' : '#cd7f32';
 
-  const containerStyle = { maxWidth: 430, margin: '0 auto', minHeight: '100vh', background: '#f8fafc', fontFamily: "'Segoe UI', Tahoma, sans-serif", direction: isRtl ? 'rtl' : 'ltr', position: 'relative', overflow: 'hidden' };
+  const containerStyle = { maxWidth: 430, margin: '0 auto', minHeight: '100vh', background: '#f8fafc', fontFamily: isRtl ? "'Tajawal', sans-serif" : "'Inter', 'Tajawal', sans-serif", direction: isRtl ? 'rtl' : 'ltr', position: 'relative', overflow: 'hidden' };
 
   const doLogin = () => {
     const ph = loginPhone.replace(/\s/g, '');
@@ -489,7 +493,7 @@ export default function MAI() {
         <p style={{ color: '#6b7280', fontSize: 14, marginBottom: 30 }}>{t.orderTracking}</p>
         <div style={{ background: '#fff', borderRadius: 16, padding: 20, width: '100%', boxShadow: '0 2px 12px rgba(0,0,0,.06)', marginBottom: 20 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}><span style={{ color: '#9ca3af', fontSize: 13 }}>Order ID</span><span style={{ fontWeight: 700, fontFamily: 'monospace' }}>ORD-{Math.floor(Math.random() * 9000 + 1000)}</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}><span style={{ color: '#9ca3af', fontSize: 13 }}>{t.total}</span><span style={{ fontWeight: 800, color: '#059669' }}>{finalTotal.toFixed(3)} {t.kd}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}><span style={{ color: '#9ca3af', fontSize: 13 }}>{t.total}</span><span style={{ fontWeight: 800, color: '#059669' }}>{toArPrice(finalTotal)} {t.kd}</span></div>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: '#9ca3af', fontSize: 13 }}>{t.points}</span><span style={{ fontWeight: 700, color: '#f59e0b' }}>+{Math.floor(finalTotal * 10)} ⭐</span></div>
         </div>
         <button onClick={() => { setOrderPlaced(false); setShowCheckout(false); setShowCart(false); setCart([]); setTab('home'); setPage('home'); }} style={{ padding: '14px 40px', borderRadius: 12, background: '#059669', color: '#fff', border: 'none', fontSize: 15, fontWeight: 700, cursor: 'pointer' }}>{t.home}</button>
@@ -532,18 +536,18 @@ export default function MAI() {
           {cart.map(item => (
             <div key={item.product.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #f3f4f6', fontSize: 13 }}>
               <span>{item.product.name[lang]} ×{item.qty}</span>
-              <span style={{ fontWeight: 600 }}>{(item.product.price * item.qty).toFixed(3)} {t.kd}</span>
+              <span style={{ fontWeight: 600 }}>{toArPrice(item.product.price * item.qty)} {t.kd}</span>
             </div>
           ))}
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', fontSize: 13, color: '#6b7280' }}><span>{t.delivery}</span><span style={{ color: '#059669', fontWeight: 600 }}>{t.free} ✓</span></div>
-          {promoApplied && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', fontSize: 13, color: '#059669' }}><span>{t.promoApplied} (10%)</span><span>-{discount.toFixed(3)} {t.kd}</span></div>}
-          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0 0', fontSize: 16, fontWeight: 800, borderTop: '2px solid #f3f4f6', marginTop: 6 }}><span>{t.total}</span><span>{finalTotal.toFixed(3)} {t.kd}</span></div>
+          {promoApplied && <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', fontSize: 13, color: '#059669' }}><span>{t.promoApplied} (10%)</span><span>-{toArPrice(discount)} {t.kd}</span></div>}
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0 0', fontSize: 16, fontWeight: 800, borderTop: '2px solid #f3f4f6', marginTop: 6 }}><span>{t.total}</span><span>{toArPrice(finalTotal)} {t.kd}</span></div>
         </div>
 
-        <div style={{ background: '#fef3c7', borderRadius: 12, padding: 12, textAlign: 'center', fontSize: 13, color: '#92400e', marginBottom: 12 }}>⭐ {t.earnPoints} +{Math.floor(finalTotal * 10)} {t.points}</div>
+        <div style={{ background: '#fef3c7', borderRadius: 12, padding: 12, textAlign: 'center', fontSize: 13, color: '#92400e', marginBottom: 12 }}>⭐ {t.earnPoints} +{toAr(Math.floor(finalTotal * 10))} {t.points}</div>
       </div>
       <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 430, padding: '12px 16px', background: '#fff', borderTop: '1px solid #e5e7eb' }}>
-        <button onClick={() => setOrderPlaced(true)} style={{ width: '100%', padding: 16, borderRadius: 14, background: 'linear-gradient(135deg, #059669, #10b981)', color: '#fff', border: 'none', fontSize: 16, fontWeight: 800, cursor: 'pointer', boxShadow: '0 4px 16px rgba(5,150,105,.3)' }}>{t.placeOrder} — {finalTotal.toFixed(3)} {t.kd}</button>
+        <button onClick={() => setOrderPlaced(true)} style={{ width: '100%', padding: 16, borderRadius: 14, background: 'linear-gradient(135deg, #059669, #10b981)', color: '#fff', border: 'none', fontSize: 16, fontWeight: 800, cursor: 'pointer', boxShadow: '0 4px 16px rgba(5,150,105,.3)' }}>{t.placeOrder} — {toArPrice(finalTotal)} {t.kd}</button>
       </div>
     </div>
   );
@@ -569,7 +573,7 @@ export default function MAI() {
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 13, fontWeight: 700 }}>{item.product.name[lang]}</div>
                   <div style={{ fontSize: 12, color: '#6b7280' }}>{item.company.name[lang]}</div>
-                  <div style={{ fontSize: 14, fontWeight: 800, color: '#0ea5e9', marginTop: 2 }}>{item.product.price.toFixed(3)} {t.kd}</div>
+                  <div style={{ fontSize: 14, fontWeight: 800, color: '#0ea5e9', marginTop: 2 }}>{toArPrice(item.product.price)} {t.kd}</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <button onClick={() => updateQty(item.product.id, -1)} style={{ width: 30, height: 30, borderRadius: 8, background: '#f3f4f6', border: 'none', fontSize: 16, cursor: 'pointer' }}>−</button>
@@ -590,8 +594,8 @@ export default function MAI() {
       </div>
       {cart.length > 0 && (
         <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 430, padding: '12px 16px', background: '#fff', borderTop: '1px solid #e5e7eb' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontSize: 14 }}><span style={{ color: '#6b7280' }}>{t.subtotal}</span><span style={{ fontWeight: 700 }}>{cartTotal.toFixed(3)} {t.kd}</span></div>
-          <button onClick={() => setShowCheckout(true)} style={{ width: '100%', padding: 15, borderRadius: 14, background: 'linear-gradient(135deg, #0ea5e9, #3b82f6)', color: '#fff', border: 'none', fontSize: 15, fontWeight: 800, cursor: 'pointer', boxShadow: '0 4px 16px rgba(14,165,233,.3)' }}>{t.checkout} — {finalTotal.toFixed(3)} {t.kd}</button>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, fontSize: 14 }}><span style={{ color: '#6b7280' }}>{t.subtotal}</span><span style={{ fontWeight: 700 }}>{toArPrice(cartTotal)} {t.kd}</span></div>
+          <button onClick={() => setShowCheckout(true)} style={{ width: '100%', padding: 15, borderRadius: 14, background: 'linear-gradient(135deg, #0ea5e9, #3b82f6)', color: '#fff', border: 'none', fontSize: 15, fontWeight: 800, cursor: 'pointer', boxShadow: '0 4px 16px rgba(14,165,233,.3)' }}>{t.checkout} — {toArPrice(finalTotal)} {t.kd}</button>
         </div>
       )}
     </div>
@@ -615,8 +619,8 @@ export default function MAI() {
               </div>
             </div>
             <div style={{ display: 'flex', gap: 16, marginTop: 14, fontSize: 12 }}>
-              <span>⭐ {c.rating} ({c.reviews.toLocaleString()})</span>
-              <span>🕐 {c.delivery}</span>
+              <span>⭐ {toAr(c.rating)} ({toAr(c.reviews.toLocaleString())})</span>
+              <span>🕐 {c.delivery[lang]}</span>
               <span>📦 {t.minOrder}: {c.minOrder} {t.kd}</span>
             </div>
           </div>
@@ -663,8 +667,8 @@ export default function MAI() {
                     {p.badge && <span style={{ fontSize: 9, padding: '2px 6px', borderRadius: 4, background: p.badge === 'offer' ? '#fef2f2' : p.badge === 'new' ? '#ecfdf5' : '#eff6ff', color: p.badge === 'offer' ? '#dc2626' : p.badge === 'new' ? '#059669' : '#2563eb', fontWeight: 700 }}>{t[p.badge]}</span>}
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4 }}>
-                    <span style={{ fontSize: 15, fontWeight: 800, color: '#0ea5e9' }}>{p.price.toFixed(3)} {t.kd}</span>
-                    {p.oldPrice && <span style={{ fontSize: 12, color: '#9ca3af', textDecoration: 'line-through' }}>{p.oldPrice.toFixed(3)}</span>}
+                    <span style={{ fontSize: 15, fontWeight: 800, color: '#0ea5e9' }}>{toArPrice(p.price)} {t.kd}</span>
+                    {p.oldPrice && <span style={{ fontSize: 12, color: '#9ca3af', textDecoration: 'line-through' }}>{toArPrice(p.oldPrice)}</span>}
                   </div>
                 </div>
                 <button onClick={() => addToCart(p, c)} style={{ padding: '8px 14px', borderRadius: 10, background: '#0ea5e9', color: '#fff', border: 'none', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>+</button>
@@ -676,7 +680,7 @@ export default function MAI() {
         {cartCount > 0 && (
           <div style={{ position: 'fixed', bottom: 16, left: '50%', transform: 'translateX(-50%)', width: 'calc(100% - 32px)', maxWidth: 398, padding: '12px 16px', background: '#0ea5e9', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#fff', cursor: 'pointer', boxShadow: '0 8px 24px rgba(14,165,233,.35)' }} onClick={() => setShowCart(true)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}><span style={{ background: 'rgba(255,255,255,.25)', borderRadius: 8, padding: '2px 8px', fontSize: 13, fontWeight: 700 }}>{cartCount}</span><span style={{ fontSize: 14, fontWeight: 700 }}>{t.cart}</span></div>
-            <span style={{ fontSize: 15, fontWeight: 800 }}>{cartTotal.toFixed(3)} {t.kd}</span>
+            <span style={{ fontSize: 15, fontWeight: 800 }}>{toArPrice(cartTotal)} {t.kd}</span>
           </div>
         )}
       </div>
@@ -718,7 +722,7 @@ export default function MAI() {
                 </div>
                 <div style={{ flex: 1, background: 'rgba(255,255,255,.12)', borderRadius: 10, padding: '10px 12px', backdropFilter: 'blur(4px)' }}>
                   <div style={{ fontSize: 11, opacity: .7 }}>{t.saved}</div>
-                  <div style={{ fontSize: 18, fontWeight: 900 }}>{USER.saved.toFixed(3)} <span style={{ fontSize: 11 }}>{t.kd}</span></div>
+                  <div style={{ fontSize: 18, fontWeight: 900 }}>{toArPrice(USER.saved)} <span style={{ fontSize: 11 }}>{t.kd}</span></div>
                 </div>
               </div>
             </div>
@@ -746,12 +750,12 @@ export default function MAI() {
                     <div key={c.id} onClick={() => openCompany(c)} style={{ flex: '0 0 auto', width: 220, background: `linear-gradient(135deg, ${c.color}, ${c.color}cc)`, borderRadius: 16, padding: 16, color: '#fff', cursor: 'pointer', boxShadow: `0 4px 16px ${c.color}30` }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
                         <span style={{ fontSize: 28 }}>{c.logo}</span>
-                        <span style={{ background: 'rgba(255,255,255,.2)', padding: '2px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700 }}>-{Math.round((1 - offer.price / offer.oldPrice) * 100)}%</span>
+                        <span style={{ background: 'rgba(255,255,255,.2)', padding: '2px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700 }}>-{toAr(Math.round((1 - offer.price / offer.oldPrice) * 100))}%</span>
                       </div>
                       <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 2 }}>{offer.name[lang]}</div>
                       <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-                        <span style={{ fontSize: 16, fontWeight: 900 }}>{offer.price.toFixed(3)} {t.kd}</span>
-                        <span style={{ fontSize: 11, textDecoration: 'line-through', opacity: .7 }}>{offer.oldPrice.toFixed(3)}</span>
+                        <span style={{ fontSize: 16, fontWeight: 900 }}>{toArPrice(offer.price)} {t.kd}</span>
+                        <span style={{ fontSize: 11, textDecoration: 'line-through', opacity: .7 }}>{toArPrice(offer.oldPrice)}</span>
                       </div>
                     </div>
                   ) : null;
@@ -781,7 +785,7 @@ export default function MAI() {
                   <div style={{ width: 52, height: 52, borderRadius: 14, background: `${c.color}12`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28 }}>{c.logo}</div>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 14, fontWeight: 700 }}>{c.name[lang]}</div>
-                    <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 2 }}>⭐ {c.rating} · 🕐 {c.delivery} · {c.products.length} {t.products}</div>
+                    <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 2 }}>⭐ {toAr(c.rating)} · 🕐 {c.delivery[lang]} · {toAr(c.products.length)} {t.products}</div>
                   </div>
                   <span style={{ fontSize: 18, color: '#d1d5db' }}>←</span>
                 </div>
@@ -809,7 +813,7 @@ export default function MAI() {
                 {DELIVERY_AREAS.map((a, i) => (
                   <div key={i} style={{ background: '#fff', borderRadius: 12, padding: 10, boxShadow: '0 1px 4px rgba(0,0,0,.04)', textAlign: 'center' }}>
                     <div style={{ fontSize: 13, fontWeight: 700 }}>{a[lang]}</div>
-                    <div style={{ fontSize: 11, color: '#0ea5e9', fontWeight: 600, marginTop: 2 }}>🕐 {a.time} min</div>
+                    <div style={{ fontSize: 11, color: '#0ea5e9', fontWeight: 600, marginTop: 2 }}>🕐 {isRtl ? toAr(a.time)+' د' : a.time+' min'}</div>
                   </div>
                 ))}
               </div>
@@ -840,8 +844,8 @@ export default function MAI() {
                 <div key={c.id} onClick={() => openCompany(c)} style={{ background: '#fff', borderRadius: 16, padding: 16, boxShadow: '0 2px 8px rgba(0,0,0,.04)', cursor: 'pointer', textAlign: 'center' }}>
                   <div style={{ fontSize: 38, marginBottom: 6 }}>{c.logo}</div>
                   <div style={{ fontSize: 14, fontWeight: 700 }}>{c.name[lang]}</div>
-                  <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 2 }}>⭐ {c.rating}</div>
-                  <div style={{ fontSize: 11, color: '#6b7280', marginTop: 4 }}>{c.products.length} {t.products}</div>
+                  <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 2 }}>⭐ {toAr(c.rating)}</div>
+                  <div style={{ fontSize: 11, color: '#6b7280', marginTop: 4 }}>{toAr(c.products.length)} {t.products}</div>
                 </div>
               ))}
             </div>
@@ -858,8 +862,8 @@ export default function MAI() {
                   <span style={{ fontFamily: 'monospace', fontSize: 13, fontWeight: 700, color: '#6b7280' }}>{o.id}</span>
                   <span style={{ fontSize: 11, color: o.status === 'delivered' ? '#059669' : '#f59e0b', fontWeight: 700, background: o.status === 'delivered' ? '#ecfdf5' : '#fefce8', padding: '2px 8px', borderRadius: 6 }}>{t[o.status]}</span>
                 </div>
-                <div style={{ fontSize: 14, fontWeight: 600 }}>{o.company}</div>
-                <div style={{ fontSize: 12, color: '#9ca3af', marginTop: 2 }}>{o.items} {t.items} · {o.total.toFixed(3)} {t.kd}</div>
+                <div style={{ fontSize: 14, fontWeight: 600 }}>{typeof o.company === 'string' ? o.company : o.company[lang]}</div>
+                <div style={{ fontSize: 12, color: '#9ca3af', marginTop: 2 }}>{toAr(o.items)} {t.items} · {toArPrice(o.total)} {t.kd}</div>
                 {o.status !== 'delivered' && (
                   <div style={{ marginTop: 10, background: '#f3f4f6', borderRadius: 6, height: 6, overflow: 'hidden' }}>
                     <div style={{ width: `${o.progress}%`, height: '100%', background: 'linear-gradient(90deg, #0ea5e9, #3b82f6)', borderRadius: 6 }} />
@@ -879,7 +883,7 @@ export default function MAI() {
               <h2 style={{ fontSize: 20, fontWeight: 900 }}>{USER.name[lang]}</h2>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: `${levelColor}25`, border: `1px solid ${levelColor}50`, padding: '3px 12px', borderRadius: 20, fontSize: 11, fontWeight: 700, color: levelColor, marginTop: 6 }}>👑 {levelName}</div>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 16 }}>
-                {[[USER.points.toLocaleString(), t.points, '⭐'], [USER.totalOrders, t.orders_count, '📦'], [`${USER.saved.toFixed(1)} ${t.kd}`, t.saved, '💰']].map(([val, label, icon], i) => (
+                {[[toAr(USER.points.toLocaleString()), t.points, '⭐'], [toAr(USER.totalOrders), t.orders_count, '📦'], [`${toArPrice(USER.saved)} ${t.kd}`, t.saved, '💰']].map(([val, label, icon], i) => (
                   <div key={i} style={{ flex: 1, background: 'rgba(255,255,255,.08)', borderRadius: 12, padding: 10 }}>
                     <div style={{ fontSize: 16, fontWeight: 900 }}>{icon} {val}</div>
                     <div style={{ fontSize: 10, opacity: .6, marginTop: 2 }}>{label}</div>
@@ -918,7 +922,7 @@ export default function MAI() {
 
             {/* Notifications */}
             <div style={{ background: '#fff', borderRadius: 14, padding: 16, marginBottom: 12, boxShadow: '0 1px 6px rgba(0,0,0,.04)' }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}>🔔 {t.notifications} <span style={{ background: '#ef4444', color: '#fff', fontSize: 10, padding: '1px 6px', borderRadius: 10, fontWeight: 700 }}>{NOTIFICATIONS.filter(n => !n.read).length}</span></h3>
+              <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}>🔔 {t.notifications} <span style={{ background: '#ef4444', color: '#fff', fontSize: 10, padding: '1px 6px', borderRadius: 10, fontWeight: 700 }}>{toAr(NOTIFICATIONS.filter(n => !n.read).length)}</span></h3>
               {NOTIFICATIONS.slice(0, 3).map(n => (
                 <div key={n.id} style={{ display: 'flex', gap: 10, padding: '8px 0', borderBottom: '1px solid #f3f4f6', opacity: n.read ? 0.6 : 1 }}>
                   <span style={{ fontSize: 20 }}>{n.type === 'order' ? '📦' : n.type === 'offer' ? '🏷️' : n.type === 'points' ? '⭐' : 'ℹ️'}</span>
@@ -926,7 +930,7 @@ export default function MAI() {
                     <div style={{ fontSize: 12, fontWeight: 700 }}>{n.title[lang]}</div>
                     <div style={{ fontSize: 11, color: '#6b7280', marginTop: 1 }}>{n.body[lang]}</div>
                   </div>
-                  <span style={{ fontSize: 10, color: '#9ca3af', whiteSpace: 'nowrap' }}>{n.time}</span>
+                  <span style={{ fontSize: 10, color: '#9ca3af', whiteSpace: 'nowrap' }}>{typeof n.time === 'object' ? n.time[lang] : n.time}</span>
                 </div>
               ))}
             </div>
@@ -967,7 +971,7 @@ export default function MAI() {
         <div onClick={() => setShowCart(true)} style={{ position: 'fixed', bottom: 72, [isRtl ? 'left' : 'right']: 'calc(50% - 195px)', background: '#0ea5e9', color: '#fff', borderRadius: 14, padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', boxShadow: '0 4px 20px rgba(14,165,233,.35)', zIndex: 99, maxWidth: 'fit-content' }}>
           <span style={{ fontSize: 16 }}>🛒</span>
           <span style={{ fontWeight: 700, fontSize: 13 }}>{cartCount} {t.items}</span>
-          <span style={{ fontWeight: 800, fontSize: 14 }}>{cartTotal.toFixed(3)} {t.kd}</span>
+          <span style={{ fontWeight: 800, fontSize: 14 }}>{toArPrice(cartTotal)} {t.kd}</span>
         </div>
       )}
     </div>
