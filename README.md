@@ -15,13 +15,13 @@
 [![Companies](https://img.shields.io/badge/companies-10-059669?style=flat-square)]()
 [![Products](https://img.shields.io/badge/products-68-f59e0b?style=flat-square)]()
 
-**MAI (ماي)** — "water" in Kuwaiti dialect — is a mobile-first water delivery marketplace connecting Kuwait's residents with local water companies. Browse companies, compare products, order gallons, filters, dispensers, and subscribe to delivery plans.
+**MAI (ماي)**، "water" in Kuwaiti dialect، is a mobile-first water delivery marketplace connecting Kuwait's residents with local water companies. Browse companies, compare products, order gallons, filters, dispensers, and subscribe to delivery plans.
 
 </div>
 
 ---
 
-## 📱 App Screenshots
+## App Screenshots
 
 <div align="center">
   <img src="screenshots/home.svg" width="200" alt="Home Screen" />
@@ -51,7 +51,7 @@
 
 ---
 
-## 🏢 Water Companies (Demo Data)
+## Water Companies (Demo Data)
 
 All companies are **real Kuwait water brands** with demo product data:
 
@@ -70,18 +70,18 @@ All companies are **real Kuwait water brands** with demo product data:
 
 ---
 
-## ✨ App Features
+## App Features
 
-### 🔐 Login Screen
-- **Glassmorphism design** — frosted glass card on ocean gradient
-- **Creative SVG logo** — water drop with waves, "MAI ماي" text
-- **Demo credentials** — displayed below the form for easy testing
+### Login Screen
+- **Glassmorphism design**: frosted glass card on ocean gradient
+- **Creative SVG logo**: water drop with waves, "MAI ماي" text
+- **Demo credentials**: displayed below the form for easy testing
 - **Phone + password** authentication
-- **Social login** — Apple Sign-in and SMS code options
+- **Social login**: Apple Sign-in and SMS code options
 - **Remember me** checkbox
 - **Forgot password** link
-- **Bilingual toggle** — switch AR/EN right from login
-- **Animated entry** — logo drops in, card fades up with staggered timing
+- **Bilingual toggle**: switch AR/EN right from login
+- **Animated entry**: logo drops in, card fades up with staggered timing
 
 **Demo Login:**
 | Field | Value |
@@ -90,55 +90,55 @@ All companies are **real Kuwait water brands** with demo product data:
 | Password | `mai2026` |
 | Quick | `demo` / `demo` |
 
-### 🏠 Home Screen
-- **Personalized greeting** — Good morning/evening with user name
-- **Smart search** — Search companies by Arabic or English name
-- **Points & savings dashboard** — Points earned + money saved
-- **6 product categories** — Bottled, Gallons, Filters, Dispensers, Subscriptions, Accessories
-- **Featured offers carousel** — Discount cards with percentage badges
-- **Promo banners** — Horizontal scroll (first order, subscriptions, referrals)
-- **Company directory** — All 10 companies with ratings, delivery time, product count
-- **Water tips** — Daily hydration tips rotating automatically
-- **Delivery areas** — 6 Kuwait governorates with delivery times
-- **Stats bar** — 10 companies · 68+ products · 24/7 · 6 governorates
+### Home Screen
+- **Personalized greeting**: Good morning/evening with user name
+- **Smart search**: Search companies by Arabic or English name
+- **Points & savings dashboard**: Points earned + money saved
+- **6 product categories**: Bottled, Gallons, Filters, Dispensers, Subscriptions, Accessories
+- **Featured offers carousel**: Discount cards with percentage badges
+- **Promo banners**: Horizontal scroll (first order, subscriptions, referrals)
+- **Company directory**: All 10 companies with ratings, delivery time, product count
+- **Water tips**: Daily hydration tips rotating automatically
+- **Delivery areas**: 6 Kuwait governorates with delivery times
+- **Stats bar**: 10 companies · 68+ products · 24/7 · 6 governorates
 
-### 🏢 Company Pages
-- **Company hero** — Logo, name, rating, reviews, delivery time, minimum order
-- **Info cards** — Working hours, phone number, delivery coverage (horizontal scroll)
-- **Certifications** — ISO, HACCP, NSF badges
-- **Category filter** — Filter products by type
-- **Product cards** — Name, description, price, old price, badge (Offer/New/Best Seller)
-- **Quick add to cart** — One-tap with floating cart summary
+### Company Pages
+- **Company hero**: Logo, name, rating, reviews, delivery time, minimum order
+- **Info cards**: Working hours, phone number, delivery coverage (horizontal scroll)
+- **Certifications**: ISO, HACCP, NSF badges
+- **Category filter**: Filter products by type
+- **Product cards**: Name, description, price, old price, badge (Offer/New/Best Seller)
+- **Quick add to cart**: One-tap with floating cart summary
 
-### 🛒 Cart & Checkout
-- **Cart management** — Quantities, remove items
-- **Promo codes** — `MAI10` (10%), `FIRST` (15%), `WATER50`, `SUMMER`
+### Cart & Checkout
+- **Cart management**: Quantities, remove items
+- **Promo codes**: `MAI10` (10%), `FIRST` (15%), `WATER50`, `SUMMER`
 - **Payment:** 🏧 KNET · 💳 Credit Card ·  Apple Pay · 💵 Cash on Delivery
-- **Points preview** — See points you'll earn before ordering
-- **Delivery address** — Saved addresses
-- **Order summary** — Itemized with delivery fee and discounts
+- **Points preview**: See points you'll earn before ordering
+- **Delivery address**: Saved addresses
+- **Order summary**: Itemized with delivery fee and discounts
 
-### 📦 Order Tracking
-- **Active orders** — Live progress bar (Confirmed → Preparing → On the way → Delivered)
-- **Past orders** — Full history with dates and totals
-- **Order status badges** — Color-coded status indicators
+### Order Tracking
+- **Active orders**: Live progress bar (Confirmed → Preparing → On the way → Delivered)
+- **Past orders**: Full history with dates and totals
+- **Order status badges**: Color-coded status indicators
 
-### 👤 Profile & Rewards
-- **Membership levels** — 🥉 Bronze · 🥈 Silver · 🥇 Gold
-- **Points system** — 10 pts per 1 KD · Progress bar to next level
-- **Referral program** — Code `ALI2026` · 500 pts per referral
-- **Notifications** — Order updates, offers, points earned (with unread count)
-- **Stats** — Total orders, points balance, money saved
-- **Settings** — Edit profile, addresses, notifications, language, help center
+### Profile & Rewards
+- **Membership levels**: 🥉 Bronze · 🥈 Silver · 🥇 Gold
+- **Points system**: 10 pts per 1 KD · Progress bar to next level
+- **Referral program**: Code `ALI2026` · 500 pts per referral
+- **Notifications**: Order updates, offers, points earned (with unread count)
+- **Stats**: Total orders, points balance, money saved
+- **Settings**: Edit profile, addresses, notifications, language, help center
 
-### 🌐 Bilingual Support
-- Full **Arabic** and **English** — all text, labels, product names, descriptions
+### Bilingual Support
+- Full **Arabic** and **English**: all text, labels, product names, descriptions
 - **RTL/LTR** layout auto-switching
 - One-tap language toggle in header
 
 ---
 
-## 📦 Product Categories (68 products)
+## Product Categories (68 products)
 
 | Category | Icon | Count | Price Range | Examples |
 |----------|------|-------|-------------|---------|
@@ -153,7 +153,7 @@ All companies are **real Kuwait water brands** with demo product data:
 
 ---
 
-## 💳 Payment Methods
+## Payment Methods
 
 | Method | Icon | Description |
 |--------|------|-------------|
@@ -164,7 +164,7 @@ All companies are **real Kuwait water brands** with demo product data:
 
 ---
 
-## ⭐ Points & Rewards
+## Points & Rewards
 
 ```
 ┌──────────────────────────────────────────────┐
@@ -191,7 +191,7 @@ All companies are **real Kuwait water brands** with demo product data:
 
 ---
 
-## 🗺️ Delivery Coverage
+## Delivery Coverage
 
 | Governorate | Key Areas | Time |
 |-------------|-----------|------|
@@ -204,7 +204,7 @@ All companies are **real Kuwait water brands** with demo product data:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 git clone https://github.com/SiteQ8/MAI.git
@@ -224,7 +224,7 @@ Open `http://localhost:5173`
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 MAI/
@@ -244,9 +244,8 @@ MAI/
 
 <div align="center">
 
-### 💧 MAI — ماي
+### MAI: ماي
 
-**Made with ❤️ in Kuwait 🇰🇼**
 
 [Ali AlEnezi](https://github.com/SiteQ8) · [@SiteQ8](https://github.com/SiteQ8) · [3li.info](https://3li.info)
 
